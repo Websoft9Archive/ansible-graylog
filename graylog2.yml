@@ -1,0 +1,8 @@
+---
+- name: graylog2
+  hosts: all
+  remote_user: root
+
+  roles:
+    - { role: graylog2, tags: graylog2 }
+    - { role: nginx, tags: nginx }

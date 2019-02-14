@@ -1,0 +1,42 @@
+---
+- name: install nginx
+  apt:
+    name: nginx
+    state: latest
+
+- name: create certificate directory
+  file:
+    path: /data/cert
+    state: directory
+    owner: root
+    group: root
+    mode: 0644
+
+- name: delete old default configuration file
+  file: 
+      path: /etc/nginx/sites-available/default
+      state: absent
+
+- name: delete old soft link of configuration file
+  file: 
+      path: /etc/nginx/sites-enabled/default
+      state: absent
+
+- name: Copy graylog2's proxy configuration file
+  copy: src=default dest=/etc/nginx/sites-available
+
+- name: create Soft link of default file
+  file:
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+    owner: root
+    group: root
+    mode: 0644
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes
+ 

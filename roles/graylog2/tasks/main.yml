@@ -1,0 +1,96 @@
+---
+- name: System Upgrade
+  apt:
+    name: '*'
+    state: latest
+    force_apt_get: True
+
+- name: Prerequisites
+  apt:
+    name: [apt-transport-https, openjdk-8-jre-headless, uuid-runtime, pwgen]
+    state: latest
+
+- name: MongDB
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 9DA31620334BD75D9DCB49F368818C72E52529D4
+
+- name: add reporisity 
+  shell: echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+
+- name: System Upgrade
+  shell: apt update -y
+
+- name: install MongDB
+  apt: 
+    name: mongodb-org
+    state: latest
+
+- name: start MongoDB
+  shell: systemctl daemon-reload
+
+- name: start MongoDB
+  service:
+    name: mongod
+    state: restarted
+    enabled: yes
+
+- name: Elasticsearch -1
+  shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
+- name: Elasticsearch -2
+  shell: echo "deb https://artifacts.elastic.co/packages/oss-6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+
+- name: apt update
+  shell: apt update -y
+
+- name: Elasticsearch -3
+  apt: 
+    name: elasticsearch-oss 
+    state: latest
+
+- name: change elasticsearch's configuration file
+  template:
+    src: elasticsearch.yml
+    dest: /etc/elasticsearch/
+    owner: root
+    group: root
+    mode: 0644
+
+- name: start Elasticsearch -1
+  shell: systemctl daemon-reload
+
+- name: start Elasticsearch -2
+  service:
+    name: elasticsearch
+    state: restarted
+    enabled: yes
+
+- name: graylog
+  shell: wget -P /root https://packages.graylog2.org/repo/packages/graylog-2.5-repository_latest.deb
+
+- name: graylog -2
+  shell: dpkg -i /root/graylog-2.5-repository_latest.deb
+
+- name: System Upgrade
+  shell: apt update -y
+
+- name: graylog -3
+  apt: name=graylog-server state=latest
+
+- name: change configuration file
+  template:
+    src: server.conf
+    dest: /etc/graylog/server/
+    owner: root
+    group: root
+    mode: 0644
+
+- name: start graylog2 -1
+  shell: systemctl daemon-reload
+
+- name: start graylog2 -2
+  service:
+    name: graylog-server
+    state: restarted
+    enabled: yes
