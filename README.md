@@ -4,3 +4,4 @@
    将 ```http://www.example.com``` 改为自己的域名（保留http://  其他不变）
 4. 修改 ```/etc/nginx/sites-available/default``` 文件中的域名： ```server_name www.example.com;``` 改为自己的域名；
 5. 修改后重启服务：```systemctl restart graylog-server nginx```
+6. 服务器内存需要4G以上
