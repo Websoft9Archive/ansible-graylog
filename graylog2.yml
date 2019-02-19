@@ -4,5 +4,6 @@
   remote_user: root
 
   roles:
+    - { role: common , tags: "common"} 
     - { role: graylog2, tags: graylog2 }
     - { role: nginx, tags: nginx }
