@@ -15,7 +15,7 @@ Platform. It combines leading open source projects, such as Graylog,MongoDB,Java
 
 2. COMPONENTS and Version
 
-Websoft9 ERPNext stack ships with the following software versions:
+Websoft9 Graylog stack ships with the following software versions:
 
 ********
 - Graylog 3.0.0
@@ -35,5 +35,5 @@ Websoft9 ERPNext stack ships with the following software versions:
 
 You can find a quick start guide and more documentation about all of the components at:
 
-中文文档：http://support.websoft9.com/docs/erpnext-image-guide/
-English: https://www.yuque.com/webs/mq/erpnext
+中文文档：http://support.websoft9.com/docs/graylog-image-guide/
+English: https://www.yuque.com/webs/mq/graylog
