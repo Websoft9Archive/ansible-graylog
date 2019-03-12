@@ -18,36 +18,27 @@
 - name: add reporisity 
   shell: echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 
-- name: System Upgrade
-  shell: apt update -y
-
 - name: install MongDB
   apt: 
     name: mongodb-org
     state: latest
+    update-cache: yes
 
 - name: start MongoDB
   shell: systemctl daemon-reload
+  notify: start MongoDB
 
-- name: start MongoDB
-  service:
-    name: mongod
-    state: restarted
-    enabled: yes
-
-- name: Elasticsearch -1
+- name: Install Elasticsearch -1
   shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 
-- name: Elasticsearch -2
+- name: Install Elasticsearch -2
   shell: echo "deb https://artifacts.elastic.co/packages/oss-6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
 
-- name: apt update
-  shell: apt update -y
-
-- name: Elasticsearch -3
+- name: Install Elasticsearch -3
   apt: 
     name: elasticsearch-oss 
     state: latest
+    update-cache: yes
 
 - name: change elasticsearch's configuration file
   template:
@@ -57,14 +48,9 @@
     group: root
     mode: 0644
 
-- name: start Elasticsearch -1
+- name: start Elasticsearch
   shell: systemctl daemon-reload
-
-- name: start Elasticsearch -2
-  service:
-    name: elasticsearch
-    state: restarted
-    enabled: yes
+  notify: start Elasticsearch
 
 - name: graylog
   shell: wget -P /root https://packages.graylog2.org/repo/packages/graylog-2.5-repository_latest.deb
@@ -72,11 +58,11 @@
 - name: graylog -2
   shell: dpkg -i /root/graylog-2.5-repository_latest.deb
 
-- name: System Upgrade
-  shell: apt update -y
-
 - name: graylog -3
-  apt: name=graylog-server state=latest
+  apt: 
+    name: graylog-server
+    state: latest
+    update-cache: yes
 
 - name: change configuration file
   template:
@@ -86,11 +72,6 @@
     group: root
     mode: 0644
 
-- name: start graylog2 -1
+- name: start graylog2
   shell: systemctl daemon-reload
-
-- name: start graylog2 -2
-  service:
-    name: graylog-server
-    state: restarted
-    enabled: yes
+  notify: start graylog2
