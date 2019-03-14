@@ -52,7 +52,7 @@
   shell: systemctl daemon-reload
   notify: start Elasticsearch
 
-- name: graylog
+- name: graylog -1
   shell: wget -P /root https://packages.graylog2.org/repo/packages/graylog-2.5-repository_latest.deb
 
 - name: graylog -2
