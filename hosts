@@ -1,2 +1,2 @@
-[server]
+[graylog]
 159.138.233.36  ansible_ssh_user=root ansible_ssh_pass=Qwer1234
