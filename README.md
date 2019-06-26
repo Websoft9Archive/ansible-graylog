@@ -24,7 +24,15 @@ $ sudo apt-get update
 $ sudo apt-get install graylog-server
 ~~~
 
-修改方法：roles/knowage/defaults/main.yml的 knowage_url 字段
+修改 roles/graylog2/tasks/main.yml 文件的如下部分：
+
+~~~
+- name: graylog -1
+  shell: wget -P /root https://packages.graylog2.org/repo/packages/graylog-2.5-repository_latest.deb
+
+- name: graylog -2
+  shell: dpkg -i /root/graylog-2.5-repository_latest.deb
+~~~
 
 
 ## 安装指南
