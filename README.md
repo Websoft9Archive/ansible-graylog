@@ -16,8 +16,12 @@
 
 官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
 
+版本文件：roles/graylog2/defaults/main.yml
+
+
 ~~~
- 修改 roles 中 graylog 内 defaults下的变量 graylog_ver 对应新的版本号即可
+ //例如修改2.5为3.0
+ graylog_ver: 3.0
 ~~~
 
 
