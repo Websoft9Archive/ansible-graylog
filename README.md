@@ -12,11 +12,20 @@
 
 ## 版本
 
-本项目Graylog采用的源码部署方式，为了保证每次安装为最新版本，需要在运行脚本之前Knowage源码下载地址。
+本项目Graylog官方采用APT安装方式，需要修改本脚本官方的仓库地址。
+
+官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
+
+~~~
+$ sudo apt-get install apt-transport-https
+$ wget https://packages.graylog2.org/repo/packages/graylog-3.0-repository_latest.deb
+$ sudo dpkg -i graylog-3.0-repository_latest.deb
+$ sudo apt-get update
+$ sudo apt-get install graylog-server
+~~~
 
 修改方法：roles/knowage/defaults/main.yml的 knowage_url 字段
 
-源码下载地址：https://www.knowage-suite.com/site/knowage-download/
 
 ## 安装指南
 
