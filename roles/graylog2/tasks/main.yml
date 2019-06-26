@@ -53,10 +53,10 @@
   notify: start Elasticsearch
 
 - name: graylog -1
-  shell: wget -P /root https://packages.graylog2.org/repo/packages/graylog-2.5-repository_latest.deb
+  shell: wget -P /root https://packages.graylog2.org/repo/packages/graylog-3.0-repository_latest.deb
 
 - name: graylog -2
-  shell: dpkg -i /root/graylog-2.5-repository_latest.deb
+  shell: dpkg -i /root/graylog-3.0-repository_latest.deb
 
 - name: graylog -3
   apt: 
