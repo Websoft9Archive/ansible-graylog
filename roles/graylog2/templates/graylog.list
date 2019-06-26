@@ -1,0 +1,1 @@
+deb https://packages.graylog2.org/repo/debian/ stable {{graylog_ver}}

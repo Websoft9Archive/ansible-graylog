@@ -53,10 +53,15 @@
   notify: start Elasticsearch
 
 - name: graylog -1
-  shell: wget -P /root https://packages.graylog2.org/repo/packages/graylog-3.0-repository_latest.deb
+  template:
+    src: graylog.list
+    dest: /etc/apt/sources.list.d/graylog.list
 
 - name: graylog -2
-  shell: dpkg -i /root/graylog-3.0-repository_latest.deb
+  apt_key:
+    url: https://packages.graylog2.org/repo/debian/keyring.gpg
+    state: present
+
 
 - name: graylog -3
   apt: 
