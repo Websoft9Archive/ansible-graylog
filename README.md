@@ -12,9 +12,7 @@
 
 ## 版本
 
-本项目Graylog官方采用APT安装方式，修改变量选择大版本
-
-官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
+本项目Graylog官方采用APT安装方式，修改变量选择大版本，打版本号查看官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
 
 版本文件：roles/graylog2/defaults/main.yml
 
@@ -23,6 +21,8 @@
  //例如修改2.5为3.0
  graylog_ver: 3.0
 ~~~
+
+小版本号通过Graylog的[下载中心](https://www.graylog.org/downloads)查看
 
 
 ## 安装指南
