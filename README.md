@@ -12,26 +12,12 @@
 
 ## 版本
 
-本项目Graylog官方采用APT安装方式，需要修改本脚本官方的仓库地址。
+本项目Graylog官方采用APT安装方式，修改变量选择大版本
 
 官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
 
 ~~~
-$ sudo apt-get install apt-transport-https
-$ wget https://packages.graylog2.org/repo/packages/graylog-3.0-repository_latest.deb
-$ sudo dpkg -i graylog-3.0-repository_latest.deb
-$ sudo apt-get update
-$ sudo apt-get install graylog-server
-~~~
-
-修改 roles/graylog2/tasks/main.yml 文件的如下部分：
-
-~~~
-- name: graylog -1
-  shell: wget -P /root https://packages.graylog2.org/repo/packages/graylog-2.5-repository_latest.deb
-
-- name: graylog -2
-  shell: dpkg -i /root/graylog-2.5-repository_latest.deb
+ 修改 roles 中 graylog 内 defaults下的变量 graylog_ver 对应新的版本号即可
 ~~~
 
 
