@@ -25,8 +25,10 @@
     update-cache: yes
 
 - name: start MongoDB
-  shell: systemctl daemon-reload
-  notify: start MongoDB
+  service:
+    name: mongod
+    state: restarted
+    enabled: yes
 
 - name: Install Elasticsearch -1
   shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
@@ -49,8 +51,10 @@
     mode: 0644
 
 - name: start Elasticsearch
-  shell: systemctl daemon-reload
-  notify: start Elasticsearch
+  service:
+    name: elasticsearch
+    state: restarted
+    enabled: yes
 
 - name: graylog -1
   template:
@@ -78,5 +82,7 @@
     mode: 0644
 
 - name: start graylog2
-  shell: systemctl daemon-reload
-  notify: start graylog2
+  service:
+    name: graylog-server
+    state: restarted
+    enabled: yes
