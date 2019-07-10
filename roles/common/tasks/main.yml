@@ -3,13 +3,13 @@
   apt:
     name: "*"
     state: latest
-    force_apt_get: True
     update_cache: yes
+    force_apt_get: True
     autoremove: yes
 
 - name: Install Common Software
   apt: 
-    name: [wget,openssl,unzip,bzip2,expect,at,vim,screen,git,htop,imagemagick,goaccess,python3-mysqldb,python-mysqldb,python-pip,python3-pip,unattended-upgrades,python3-pexpect]
+    name: [wget,openssl,unzip,bzip2,expect,at,vim,screen,git,htop,imagemagick,goaccess,python3-mysqldb,python-mysqldb,python-pip,python3-pip,unattended-upgrades,python3-pexpect,python-pexpect]
     state: latest
     force_apt_get: True
     allow_unauthenticated: yes
@@ -34,7 +34,7 @@
         line: "/mnt/swap swap swap defaults 0 0"
         state: present
   when: (ansible_swaptotal_mb == 0) and (cloud != 'azure')
-
+  
 - block:
   - name: ResourceDisk EnableSwap
     lineinfile:
@@ -50,7 +50,7 @@
       line: "ResourceDisk.SwapSizeMB=2048"
       state: present
   when: cloud == 'azure'
-    
+
 - name: Set swapiness
   sysctl:
     name: vm.swappiness
