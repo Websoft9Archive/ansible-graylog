@@ -27,16 +27,15 @@
 - name: start MongoDB
   service:
     name: mongod
-    state: restarted
+    state: started
     enabled: yes
 
 - name: Install Elasticsearch -1
-  shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+  shell: |
+    wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+    echo "deb https://artifacts.elastic.co/packages/oss-6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
 
 - name: Install Elasticsearch -2
-  shell: echo "deb https://artifacts.elastic.co/packages/oss-6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
-
-- name: Install Elasticsearch -3
   apt: 
     name: elasticsearch-oss 
     state: latest
@@ -53,25 +52,18 @@
 - name: start Elasticsearch
   service:
     name: elasticsearch
-    state: restarted
+    state: started
     enabled: yes
 
 - name: graylog -1
-  template:
-    src: graylog.list
-    dest: /etc/apt/sources.list.d/graylog.list
+  apt:
+    deb: https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
 
 - name: graylog -2
-  apt_key:
-    url: https://packages.graylog2.org/repo/debian/keyring.gpg
-    state: present
-
-
-- name: graylog -3
-  apt: 
+  apt:
     name: graylog-server
     state: latest
-    update-cache: yes
+    update_cache: yes
 
 - name: change configuration file
   template:
@@ -84,5 +76,5 @@
 - name: start graylog2
   service:
     name: graylog-server
-    state: restarted
+    state: started
     enabled: yes

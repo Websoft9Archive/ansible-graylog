@@ -4,7 +4,6 @@
   become: yes
   become_method: sudo
   become_user: root
-  remote_user: '{{admin_username}}'
   gather_facts: False
   pre_tasks:
    - name: 'install python'
@@ -15,11 +14,12 @@
   hosts: all
   become: yes
   become_method: sudo
-  remote_user: '{{admin_username}}'
   become_user: root
 
   roles:
     - { role: common , tags: "common"} 
     - { role: graylog2, tags: "graylog2" }
     - { role: nginx, tags: "nginx" }
+    - { role: docker, tags: "docker" }
+    - { role: docker_adminmongo, tags: "docker_adminmongo" }
     
