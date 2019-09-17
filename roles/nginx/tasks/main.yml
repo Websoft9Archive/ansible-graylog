@@ -12,12 +12,12 @@
     group: root
     mode: 0644
 
-- name: delete old default configuration file
+- name: delete old default configuration file -1
   file: 
       path: /etc/nginx/sites-available/default
       state: absent
 
-- name: delete old soft link of configuration file
+- name: delete old soft link of configuration file -2
   file: 
       path: /etc/nginx/sites-enabled/default
       state: absent
