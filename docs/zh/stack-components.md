@@ -6,10 +6,29 @@ Graylog部署包中不仅仅只有Graylog本身，还包含一序列支持Scratc
 
 ### Graylog
 
-Graylog安装目录: /usr/share/Graylog
-Graylog配置文件: /usr/share/Graylog/conf/defaults.ini
-数据存储路径：/usr/share/Graylog/data
-日志文件路径：/usr/share/Graylog/data/log
+Graylog安装目录: /usr/share/graylog-server
+Graylog配置文件: /etc/graylog/server/server.conf
+插件路径：/usr/share/graylog-server/plugin
+日志文件路径：/var/log/graylog-server/server.log
+
+### Nginx
+
+Nginx 虚拟主机配置文件：/etc/nginx/sites-available/default 
+
+Nginx 主配置文件： /etc/nginx/nginx.conf  
+
+Nginx 日志文件： /var/log/nginx/
+
+### MongoDB
+
+MongoDB 存储目录：/var/lib/mongodb  
+
+MongoDB 配置文件：/etc/mongod.conf   
+
+MongoDB 日志目录：/var/log/mongodb/mongod.log  
+
+MongoDB 可视化管理地址: http://服务器公网IP:9090
+
 
 ## 端口号
 
@@ -24,4 +43,11 @@ Graylog配置文件: /usr/share/Graylog/conf/defaults.ini
 
 组件对应的基本版本号可以通过云市场商品页面查看，但部署到您的服务器之后，版本会有一定的升级，故更为精准的版本请通过在服务器上运行命令查看：
 
-Couchbase: 6.0.0（通过web界面查看）
+Graylog: 3.2（通过官网查看）
+
+Nginx:	nginx -v
+
+Docker:	docker --version
+
+MongoDB: mongo --versio
+
