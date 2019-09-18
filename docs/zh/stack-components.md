@@ -38,6 +38,7 @@ MongoDB 可视化管理地址: http://服务器公网IP:9090
 | --- | --- | --- | --- |
 | HTTP | 80 | 通过http访问Graylog | 必须 |
 | HTTPS | 443 | 通过https访问Graylog | 可选 |
+| adminmongo | 9091 | 通过http管理MongoDB | 可选 |
 
 ## 版本号
 
