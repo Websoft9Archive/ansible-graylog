@@ -29,7 +29,7 @@ Graylog的版本号通过Graylog的[下载中心](https://www.graylog.org/downlo
 
 本Ansible脚本支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。
 
-在Linux上运行下面一条命令即可开启自动化部署
+在Linux上运行下面一条命令即可启动自动化部署
 
 ```
 # coming soon
