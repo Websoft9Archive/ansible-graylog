@@ -1,6 +1,7 @@
 # Graylog自动化安装与部署
 
 本项目是基于Ansible的[Graylog](https://www.graylog.org/)自动化安装脚本，实现在Ansible上一键安装Graylog。本项目是开源项目，支持MIT开源协议。如果您不熟悉Ansible的使用，您可以直接使用我们在公有云上提供的镜像。
+![](http://docs.graylog.org/en/3.1/_images/architec_small_setup.png)
 
 ## 操作系统
 
@@ -12,17 +13,16 @@
 
 ## 版本
 
-本项目Graylog官方采用APT安装方式，修改变量选择大版本，打版本号查看官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
+Graylog的版本号通过Graylog的[下载中心](https://www.graylog.org/downloads)查看
+
+本项目Graylog官方采用APT安装方式，其所版本号查看官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
 
 版本文件：roles/graylog2/defaults/main.yml
+1. graylog 源地址
+2. mongodb 源地址
+3. 
 
 
-~~~
- //例如修改2.5为3.0
- graylog_ver: 3.0
-~~~
-
-小版本号通过Graylog的[下载中心](https://www.graylog.org/downloads)查看
 
 
 ## 安装指南
