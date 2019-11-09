@@ -1,6 +1,6 @@
 # Graylog自动化安装与部署
 
-本项目由 Websoft9 研发，是基于 Ansible 的[Graylog](https://www.graylog.org/) 自动化安装脚本程序。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Graylog，完全没有技术门槛。  
+本项目由 Websoft9 研发，是基于 Ansible 的 [Graylog](https://www.graylog.org/) 自动化安装脚本程序。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Graylog，让原本复杂的安装过程变得没有任何技术门槛。  
 
 本项目是开源项目，支持MIT开源协议。
 
