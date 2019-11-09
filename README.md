@@ -15,7 +15,7 @@
 
 包含的核心组件为：Graylog,Nginx,JAVA,MongoDB,AdminMongo(Docker),Elasticsearch
 
-## 怎样安装 Graylog 最新版本？
+## 如何更改 Graylog 版本地址？
 
 本 Graylog 项目采用APT安装方式，对应的版本请通过：roles/graylog2/defaults/main.yml 查看。
 我们尽量维护更新最新的版本，但可能受制于各种因素，项目安装的也许不是Graylog 官方最新稳定版。
