@@ -1,6 +1,6 @@
 # Graylog自动化安装与部署
 
-本项目由 Websoft9 研发，是基于 Ansible 的 [Graylog](https://www.graylog.org/) 自动化安装脚本程序。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Graylog，让原本复杂的安装过程变得没有任何技术门槛。  
+本项目由 Websoft9 研发，是基于 Ansible 的 [Graylog](https://www.graylog.org/) 自动化安装程序。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Graylog，让原本复杂的安装过程变得没有任何技术门槛。  
 
 本项目是开源项目，支持MIT开源协议。
 
@@ -15,15 +15,17 @@
 
 包含的核心组件为：Graylog,Nginx,JAVA,MongoDB,AdminMongo(Docker),Elasticsearch
 
-## 最新版本修正
+## 怎样安装 Graylog 最新版本？
+
+本 Graylog 项目采用APT安装方式，对应的版本请通过：roles/graylog2/defaults/main.yml 查看。
+我们尽量维护更新最新的版本，但可能受制于各种因素，项目安装的也许不是Graylog 官方最新稳定版。
+
+如果版本不是你所要的，如何更改版本？
+
+1. 通过 [Graylog下载中心](https://www.graylog.org/downloads)查看官方最新版本
+2. 本项目Graylog官方采用APT安装方式，其所版本号查看官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
 
 
-
-Graylog的版本号通过Graylog的[下载中心](https://www.graylog.org/downloads)查看
-
-本项目Graylog官方采用APT安装方式，其所版本号查看官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
-
-版本文件：roles/graylog2/defaults/main.yml
 1. graylog 源地址
 2. mongodb 源地址
 3. 
