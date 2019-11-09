@@ -35,7 +35,7 @@ Graylog的版本号通过Graylog的[下载中心](https://www.graylog.org/downlo
 # coming soon
 ```
 
-> 自动化安装过程中有大量下载任务，可能会出现网络不通（或速度太慢）导致下载失败而终止自动化安装。此时，请多试几次，若仍然无法完成，请使用我们在工由于上提供的的 [Graylog 镜像](https://apps.websoft9.com/graylog) 部署方式
+> 自动化安装过程中有大量下载任务，可能会出现网络不通（或速度太慢）导致下载失败而终止自动化安装。此时，请多试几次，若仍然无法完成，请使用我们在公有云上提供的的 [Graylog 镜像](https://apps.websoft9.com/graylog) 部署方式
 
 ## 管理指南
 
