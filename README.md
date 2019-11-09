@@ -23,12 +23,13 @@
 如果版本不是你所要的，如何更改版本？
 
 1. 通过 [Graylog下载中心](https://www.graylog.org/downloads)查看官方最新版本
-2. 本项目Graylog官方采用APT安装方式，其所版本号查看官方关于DEB/APT源的[说明文档](http://docs.graylog.org/en/3.0/pages/installation/operating_system_packages.html)，例如：
-
-
-1. graylog 源地址
-2. mongodb 源地址
-3. 
+2. Graylog 所依赖的 Mongodb,Elasticsearch 等组件也有版本要求，请打开：[【Graylog官方文档】](http://docs.graylog.org/en)，依次进入：Installing Graylog->Operating System Packages->Prerequisites 小节，查看依赖组件的版本要求。
+3. 分别更改源地址
+```
+https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0
+https://artifacts.elastic.co/packages/oss-6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
+https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
+```
 
 ## 安装指南
 
@@ -38,7 +39,7 @@
 
 ```
 # coming soon
-```
+```  
 
 > 自动化安装过程中有大量下载任务，可能会出现网络不通（或速度太慢）导致下载失败而终止自动化安装。此时，请多试几次，若仍然无法完成，请使用我们在公有云上提供的的 [Graylog 镜像](https://apps.websoft9.com/graylog) 部署方式
 
