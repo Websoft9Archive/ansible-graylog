@@ -40,4 +40,4 @@ Graylog的版本号通过Graylog的[下载中心](https://www.graylog.org/downlo
 1. 该软件需要绑定域名使用；
 2. 默认登录密码是：admin/admin123
 
-详情请参考文档链接：
+详情请参考文档链接：https://support.websoft9.com/docs/graylog
