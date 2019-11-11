@@ -48,7 +48,7 @@ https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
 
 ## 文档
 
-文档链接：https://support.websoft9.com/docs/
+文档链接：https://support.websoft9.com/docs/graylog
 
 ## FAQ
 
