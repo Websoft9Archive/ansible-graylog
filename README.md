@@ -25,7 +25,7 @@
 
 1. 通过 [Graylog下载中心](https://www.graylog.org/downloads)查看官方最新版本
 2. 检查 Graylog 所依赖的 Mongodb,Elasticsearch 等组件的版本要求：打开：[【Graylog官方文档】](http://docs.graylog.org)，依次进入：Installing Graylog->Operating System Packages->Prerequisites 小节，查看依赖组件的版本要求。
-3. 修改本项目的 [main.yml](roles/graylog2/defaults/main.yml)，分别更改源地址
+3. 修改本项目的 [main.yml](roles/graylog2/roles/main.yml)，分别更改源地址
 ```
 https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0
 https://artifacts.elastic.co/packages/oss-6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
