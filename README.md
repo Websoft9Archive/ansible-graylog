@@ -1,5 +1,5 @@
 # Graylog自动化安装与部署
-本项目是由 [Websoft9](http://www.websoft9.com) 研发的 [GitLab](https://www.graylog.org) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 GitLab，让原本复杂的安装过程变得没有任何技术门槛。  
+本项目是由 [Websoft9](http://www.websoft9.com) 研发的 [Graylog](https://www.graylog.org) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 GitLab，让原本复杂的安装过程变得没有任何技术门槛。  
 
 本项目是开源项目，采用 LGPL3.0 开源协议。
 
@@ -7,48 +7,51 @@
 
 ## 配置要求
 
-操作系统：目前仅支持 Ubuntu16.x 以上部署此脚本  
-硬件配置：最低4G内存，30G系统盘空间，否则无法安装
+安装本项目，确保符合如下的条件：
+
+| 条件       | 详情       | 备注  |
+| ------------ | ------------ | ----- |
+| 操作系统       | Ubuntu16.04       |    |
+| 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 |  |
+| 私有云|  KVM, VMware, VirtualBox, OpenStack |  |
+| 服务器配置 | 最低1核4G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
 
 ## 组件
 
-包含的核心组件为：Graylog,Nginx,JAVA,MongoDB,AdminMongo(Docker),Elasticsearch
+包含的核心组件为：Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch
 
 更多请见[参数表](/docs/zh/stack-components.md)
 
 ## 本项目安装的是 Graylog 最新版吗？
 
-本 Graylog 项目采用APT安装方式，对应的版本请通过：roles/graylog2/defaults/main.yml 查看。
-我们尽量维护更新最新的版本，但可能受制于各种因素，项目安装的也许不是Graylog 官方最新稳定版。
+本 Graylog 项目采用 APT 安装方式，即每一次安装均可保证为 Graylog 官方发布的最新版。
 
 如果版本不是你所要的，如何调整为版本？
 
 1. 通过 [Graylog下载中心](https://www.graylog.org/downloads)查看官方最新版本
-2. 检查 Graylog 所依赖的 Mongodb,Elasticsearch 等组件的版本要求：打开：[【Graylog官方文档】](http://docs.graylog.org)，依次进入：Installing Graylog->Operating System Packages->Prerequisites 小节，查看依赖组件的版本要求。
-3. 修改本项目的 [main.yml](roles/graylog2/roles/main.yml)，分别更改源地址
-```
-https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0
-https://artifacts.elastic.co/packages/oss-6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
-https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
-```
+2. 修改本项目的 [role/graylog2/defaults/main.yml](roles/graylog2/roles/main.yml) 中的 graylog_deb_url 变量值即可。
 
 ## 安装指南
 
-以 root 用户登录 Linux，运行下面的**命令脚本**即可启动自动化部署，然后耐心等待，直至安装成功。
+以 root 用户登录 Linux，运行下面的**一键自动化安装命令**即可启动自动化部署。若没有 root 用户，请以其他用户登录 Linux 后运行 `sudo su -` 命令提升为 root 权限，然后再运行下面的脚本。
 
 ```
-# coming soon
-```  
+wget -N https://raw.githubusercontent.com/Websoft9/linux/master/ansible_script/install.sh ; bash install.sh repository=graylog
+```
 
-注意：  
+脚本后启动，就开始了自动化安装，必要时需要用户做出交互式选择，然后耐心等待直至安装成功。
 
-1. 如果以非 root 用户身份登录 Linux，请先通过 sudo 或 su 提升权限，再运行脚本。
-2. 由于自动化安装过程中有大量下载任务，若网络不通（或速度太慢）会引起下载失败，从而导致安装程序终止运行。此时，请重置服务器后再次尝试安装，若仍然无法完成，请使用我们在公有云上发布的 [GitLab 镜像](https://apps.websoft9.com/graylog) 的部署方式
+**安装中的注意事项：**  
+
+1. 操作不慎或网络发生变化，可能会导致SSH连接被中断，安装就会失败，此时请重新安装
+2. 安装缓慢、停滞不前或无故中断，主要是网络不通（或网速太慢）导致的下载问题，此时请重新安装
+
+多种原因导致无法顺利安装，请使用我们在公有云上发布的 [Graylog 镜像](https://apps.websoft9.com/graylog) 的部署方式
 
 
 ## 文档
 
-文档链接：https://support.websoft9.com/docs/graylog
+文档链接：https://support.websoft9.com/docs/graylog/zh
 
 ## FAQ
 

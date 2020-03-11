@@ -1,0 +1,7 @@
+mongodb_version: "4.0"
+
+mongodb_root_password: "123456"
+init_db: 
+  mongodb:
+    user: root
+    password: "123456"
