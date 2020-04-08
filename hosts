@@ -1,2 +1,2 @@
 [graylog]
-47.90.102.234  ansible_ssh_user=root ansible_ssh_pass=Qwerty123456  ansible_sudo_pass=Qwerty123456
+47.240.250.202  ansible_ssh_user=root ansible_ssh_pass=qwer1234!  ansible_sudo_pass=qwer1234!
