@@ -1,5 +1,5 @@
 # Graylog自动化安装与部署
-本项目是由 [Websoft9](http://www.websoft9.com) 研发的 [Graylog](https://www.graylog.org) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 GitLab，让原本复杂的安装过程变得没有任何技术门槛。  
+本项目是由 [Websoft9](http://www.websoft9.com) 研发的 [Graylog](https://www.graylog.org) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Graylog，让原本复杂的安装过程变得没有任何技术门槛。  
 
 本项目是开源项目，采用 LGPL3.0 开源协议。
 
@@ -29,7 +29,7 @@
 如果版本不是你所要的，如何调整为版本？
 
 1. 通过 [Graylog下载中心](https://www.graylog.org/downloads)查看官方最新版本
-2. 修改本项目的 [role/graylog2/defaults/main.yml](roles/graylog2/roles/main.yml) 中的 graylog_deb_url 变量值即可。
+2. 修改本项目的 [role/graylog2/defaults/main.yml](roles/graylog2/defaults/main.yml) 中的 graylog_deb_url 变量值即可。
 
 ## 安装指南
 
