@@ -4,6 +4,10 @@
 
 暂时没有方案
 
+#### Graylog 与 数据库有什么关系？
+
+![](http://docs.graylog.org/en/3.1/_images/architec_small_setup.png)
+
 #### 如果没有域名是否可以部署 Graylog？
 
 不可以，必须[配置域名](/zh/more.md)方可使用
