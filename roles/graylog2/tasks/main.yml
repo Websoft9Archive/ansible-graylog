@@ -39,6 +39,36 @@
     state: latest
     update_cache: yes
 
+- name: Create graylog databases user
+  mongodb_user:
+    login_user: root
+    login_password: '123456'
+    login_database: admin
+    database: graylog 
+    name: graylog
+    roles: readWrite
+    password: '123456'
+  
+- name: Config Nginx
+  copy:
+    src: "{{ item }}"
+    dest: /etc/nginx/conf.d/
+  with_items:
+    - default.conf
+    - default.conf.graylog
+
+- name: upload tip
+  copy: 
+    src: graylog.html
+    dest: /data/wwwroot/
+
+- name: upload script
+  copy:
+    src: config_domain.sh
+    dest: /root/
+    mode: 0750
+
+
 - name: change configuration file
   template:
     src: server.conf
@@ -49,6 +79,9 @@
 
 - name: start graylog2
   service:
-    name: graylog-server
-    state: started
+    name: "{{ item }}" 
+    state: restarted
     enabled: yes
+  with_items:
+    - graylog-server
+    - nginx

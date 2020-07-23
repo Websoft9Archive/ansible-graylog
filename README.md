@@ -1,5 +1,5 @@
 # Graylog自动化安装与部署
-本项目是由 [Websoft9](http://www.websoft9.com) 研发的 [Graylog](https://www.graylog.org) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 GitLab，让原本复杂的安装过程变得没有任何技术门槛。  
+本项目是由 [Websoft9](http://www.websoft9.com) 研发的 [Graylog](https://www.graylog.org) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Graylog，让原本复杂的安装过程变得没有任何技术门槛。  
 
 本项目是开源项目，采用 LGPL3.0 开源协议。
 
@@ -11,7 +11,7 @@
 
 | 条件       | 详情       | 备注  |
 | ------------ | ------------ | ----- |
-| 操作系统       | Ubuntu16.04       |    |
+| 操作系统       | Ubuntu18.04       |    |
 | 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 |  |
 | 私有云|  KVM, VMware, VirtualBox, OpenStack |  |
 | 服务器配置 | 最低1核4G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
@@ -29,14 +29,14 @@
 如果版本不是你所要的，如何调整为版本？
 
 1. 通过 [Graylog下载中心](https://www.graylog.org/downloads)查看官方最新版本
-2. 修改本项目的 [role/graylog2/defaults/main.yml](roles/graylog2/roles/main.yml) 中的 graylog_deb_url 变量值即可。
+2. 修改本项目的 [role/graylog2/defaults/main.yml](roles/graylog2/defaults/main.yml) 中的 graylog_deb_url 变量值即可。
 
 ## 安装指南
 
 以 root 用户登录 Linux，运行下面的**一键自动化安装命令**即可启动自动化部署。若没有 root 用户，请以其他用户登录 Linux 后运行 `sudo su -` 命令提升为 root 权限，然后再运行下面的脚本。
 
 ```
-wget -N https://raw.githubusercontent.com/Websoft9/linux/master/ansible_script/install.sh ; bash install.sh repository=graylog
+wget -N https://raw.githubusercontent.com/Websoft9/ansible-linux/master/scripts/install.sh; bash install.sh -r graylog
 ```
 
 脚本后启动，就开始了自动化安装，必要时需要用户做出交互式选择，然后耐心等待直至安装成功。
