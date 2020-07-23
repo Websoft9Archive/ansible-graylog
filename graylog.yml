@@ -1,5 +1,5 @@
 ---
-- name: graylog
+- name: Graylog
   hosts: all
   become: yes
   become_method: sudo
@@ -14,9 +14,8 @@
     - { role: role_elasticsearch , tags: "role_elasticsearch" }
     - { role: role_mongodb, tags: "role_mongodb" }
     - { role: role_nginx, tags: "role_nginx" }
-    - { role: docker, tags: "docker" }
+    - { role: role_docker, tags: "role_docker" }
     - { role: graylog, tags: "graylog" }
     - { role: role_init_password, tags: "role_init_password" }
     - { role: role_preend, tags: "role_preend" }
     - { role: role_end, tags: "role_end" }
-    
