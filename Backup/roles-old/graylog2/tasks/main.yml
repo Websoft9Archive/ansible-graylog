@@ -1,8 +1,34 @@
 ---
+- name: System Upgrade
+  apt:
+    name: '*'
+    state: latest
+    force_apt_get: True
+
 - name: Prerequisites
   apt:
     name: [apt-transport-https, openjdk-8-jre-headless, uuid-runtime, pwgen]
     state: latest
+
+- name: MongDB
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 9DA31620334BD75D9DCB49F368818C72E52529D4
+
+- name: add reporisity 
+  shell: echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+
+- name: install MongDB
+  apt: 
+    name: mongodb-org
+    state: latest
+    update-cache: yes
+
+- name: start MongoDB
+  service:
+    name: mongod
+    state: started
+    enabled: yes
 
 - name: Install Elasticsearch -1
   shell: |
@@ -31,43 +57,13 @@
 
 - name: graylog -1
   apt:
-    deb: "{{graylog_deb_url}}"
+    deb: https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
 
 - name: graylog -2
   apt:
     name: graylog-server
     state: latest
     update_cache: yes
-
-- name: Create graylog databases user
-  mongodb_user:
-    login_user: root
-    login_password: '123456'
-    login_database: admin
-    database: graylog 
-    name: graylog
-    roles: readWrite
-    password: '123456'
-  
-- name: Config Nginx
-  copy:
-    src: "{{ item }}"
-    dest: /etc/nginx/conf.d/
-  with_items:
-    - default.conf
-    - default.conf.graylog
-
-- name: upload tip
-  copy: 
-    src: graylog.html
-    dest: /data/wwwroot/
-
-- name: upload script
-  copy:
-    src: config_domain.sh
-    dest: /root/
-    mode: 0750
-
 
 - name: change configuration file
   template:
@@ -79,9 +75,6 @@
 
 - name: start graylog2
   service:
-    name: "{{ item }}" 
-    state: restarted
+    name: graylog-server
+    state: started
     enabled: yes
-  with_items:
-    - graylog-server
-    - nginx

@@ -1,6 +1,20 @@
-mongodb_version: "4.0"
+jdk_version: "8"
 
+nginx_listen_port: "9000"
+
+mongodb_version: "4.0"    
 mongodb_root_password: "123456"
+mongodb_root_username: "root"
+
+mongodb_users:  
+  - name: graylog
+    database_name: graylog
+    password: "123456"
+    roles: readWrite
+
+docker_applications: 
+  - adminmongo
+
 init_db: 
   mongodb:
     user: root

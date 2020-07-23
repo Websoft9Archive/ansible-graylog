@@ -1,54 +1,84 @@
+---
+sidebarDepth: 3
+---
+
 # 参数
 
-## 组件及路径
+Graylog 预装包包含 Graylog 运行所需一序列支撑软件（简称为“组件”），下面列出主要组件名称、安装路径、配置文件地址、端口、版本等重要的信息。
 
-Graylog部署包中不仅仅只有Graylog本身，还包含一序列支持Scratch运行所需的其他软件（这里称之为组件），下面列出主要组件名称、安装路径、配置文件地址等重要的信息：
+## 路径
 
 ### Graylog
 
-Graylog安装目录: /usr/share/graylog-server
-Graylog配置文件: /etc/graylog/server/server.conf
-插件路径：/usr/share/graylog-server/plugin
-日志文件路径：/var/log/graylog-server/server.log
+Graylog 安装路径: */usr/share/graylog-server*  
+Graylog 配置文件: */etc/graylog/server/server.conf*  
+Graylog 日志文件: */var/log/graylog-server/server.log*  
+
+### OpenJDK
+
+Java 虚拟机: */usr/lib/jvm*  
 
 ### Nginx
 
-Nginx 虚拟主机配置文件：/etc/nginx/sites-available/default 
-
-Nginx 主配置文件： /etc/nginx/nginx.conf  
-
-Nginx 日志文件： /var/log/nginx/
+Nginx 虚拟主机配置文件: */etc/nginx/conf.d/default.conf*    
+Nginx 主配置文件: */etc/nginx/nginx.conf*   
+Nginx 日志文件: */var/log/nginx*  
+Nginx 伪静态配置目录: */etc/nginx/conf.d/rewrite* 
 
 ### MongoDB
 
-MongoDB 存储目录：/var/lib/mongodb  
+MongoDB 配置文件: */etc/mongod.conf*  
+MongoDB 数据目录: */var/lib/mongodb*  
+MongoDB 日志文件: */var/log/mongodb/mongod.log*  
+MongoDB 可执行文件: */usr/bin*  
 
-MongoDB 配置文件：/etc/mongod.conf   
+### Elasticsearch
 
-MongoDB 日志目录：/var/log/mongodb/mongod.log  
-
-MongoDB 可视化管理地址: http://服务器公网IP:9090
-
+Elasticsearch 配置文件: */etc/elasticsearch/elasticsearch.yml*  
+Elasticsearch 日志文件: */var/log/elasticsearch*  
+Elasticsearch 安装目录: */usr/share/elasticsearch*  
 
 ## 端口号
 
-下面是您在使用本镜像过程中，需要用到的端口号，请通过云控制台安全组进行设置
+在云服务器中，通过 **[安全组设置](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** 来控制（开启或关闭）端口是否可以被外部访问。 
+
+通过命令`netstat -tunlp` 看查看相关端口，下面列出可能要用到的端口：
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| HTTP | 80 | 通过http访问Graylog | 必须 |
-| HTTPS | 443 | 通过https访问Graylog | 可选 |
-| adminmongo | 9091 | 通过http管理MongoDB | 可选 |
+| TCP | 80 | HTTP requests for Graylog Console| 必要 |
+| TCP | 443 | HTTPS requests for Graylog Console | 可选 |
+| TCP | 27017 | MongoDB | 可选 |
 
 ## 版本号
 
-组件对应的基本版本号可以通过云市场商品页面查看，但部署到您的服务器之后，版本会有一定的升级，故更为精准的版本请通过在服务器上运行命令查看：
+组件版本号可以通过云市场商品页面查看。但部署到您的服务器之后，组件会自动进行更新导致版本号有一定的变化，故精准的版本号请通过在服务器上运行命令查看：
 
-Graylog: 3.2（通过官网查看）
+```shell
+# Check all components version
+sudo cat /data/logs/install_version.txt
 
-Nginx:	nginx -v
+# Linux Version
+lsb_release -a
 
-Docker:	docker --version
+# Nginx  Version
+nginx -V
 
-MongoDB: mongo --versio
+# Java version
+java -v
 
+# Docker Version
+docker -v
+
+# MongoDB version
+mongodb -V
+
+# Elasticsearch version
+
+# graylog  Version
+yum info graylog
+apt show graylog
+
+# Graylog version
+graylogctl status | grep Graylog*
+```
