@@ -1,59 +1,75 @@
-# Graylog自动化安装与部署
-本项目是由 [Websoft9](http://www.websoft9.com) 研发的 [Graylog](https://www.graylog.org) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Graylog，让原本复杂的安装过程变得没有任何技术门槛。  
+# Graylog Cloud Installer
 
-本项目是开源项目，采用 LGPL3.0 开源协议。
+## Introduction
 
-![](http://docs.graylog.org/en/3.1/_images/architec_small_setup.png)
+[English](/README.md) | [简体中文](/README_zh.md)  
 
-## 配置要求
+**Graylog Cloud Installer**, developed by [Websoft9](https://www.websoft9.com), is an automatic installation program of [Graylog](https://www.graylog.org/) based on Ansible. It helps user install Graylog and pre-configure required items automatically and users only need to run a command on Linux. It simplifies the complicated installation and initialization process.  
 
-安装本项目，确保符合如下的条件：
+![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-gui-websoft9.png)
 
-| 条件       | 详情       | 备注  |
-| ------------ | ------------ | ----- |
-| 操作系统       | Ubuntu18.04       |    |
-| 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 |  |
-| 私有云|  KVM, VMware, VirtualBox, OpenStack |  |
-| 服务器配置 | 最低1核4G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
+## System Requirement
 
-## 组件
+System Requirement to install this repository are as following：
 
-包含的核心组件为：Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch
+| Conditions       | Details                               | Notes                |
+| -------------- | ----------------------------------- | -------------------- |
+| Operating System   | CentOS7.x, Ubuntu18.04, Amazon Linux2 | Optional                 |
+| Public Cloud     | AWS, Azure, Alibaba Cloud, HUAWEI ClOUD, Tencent Cloud    | Optional                 |
+| Private Cloud     | KVM, VMware, VirtualBox, OpenStack    | Optional                 |
+| Server Configuration | vCPU no less than 2 core, Memory no less than  4 GIB, Storage no less than 20 GB, Bandwidth no less than 100M ||
 
-更多请见[参数表](/docs/zh/stack-components.md)
+To learn more information, please view [System Requirement](https://docs.graylog.org/en/3.3/pages/installation.html#system-requirements).
 
-## 本项目安装的是 Graylog 最新版吗？
+## Ecosystem
 
-本 Graylog 项目采用 APT 安装方式，即每一次安装均可保证为 Graylog 官方发布的最新版。
+Core components of this repository: Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch
 
-如果版本不是你所要的，如何调整为版本？
+Learn more about [Parameters](/docs/stack-components.md).
 
-1. 通过 [Graylog下载中心](https://www.graylog.org/downloads)查看官方最新版本
-2. 修改本项目的 [role/graylog2/defaults/main.yml](roles/graylog2/defaults/main.yml) 中的 graylog_deb_url 变量值即可。
+## Installation
 
-## 安装指南
+You can install it by All-in-one Installer. In addition, you can deploy image published on major Cloud Platform by Websoft9.
 
-以 root 用户登录 Linux，运行下面的**一键自动化安装命令**即可启动自动化部署。若没有 root 用户，请以其他用户登录 Linux 后运行 `sudo su -` 命令提升为 root 权限，然后再运行下面的脚本。
+#### All-in-one Installer
+
+Run the automatic installation script with **root** authority to start the installation. If necessary, users need to make interactive choices, and then wait patiently until the installation is successful.
 
 ```
-wget -N https://raw.githubusercontent.com/Websoft9/ansible-linux/master/scripts/install.sh; bash install.sh -r graylog
+$ sudo su -
+$ wget -N https://raw.githubusercontent.com/Websoft9/ansible-linux/master/scripts/install.sh; bash install.sh -r graylog
 ```
 
-脚本后启动，就开始了自动化安装，必要时需要用户做出交互式选择，然后耐心等待直至安装成功。
+If the network is broken or blocked, SSH will be interrupted and the installation will fail. Please reinstall.
 
-**安装中的注意事项：**  
+#### Image on Cloud 
 
-1. 操作不慎或网络发生变化，可能会导致SSH连接被中断，安装就会失败，此时请重新安装
-2. 安装缓慢、停滞不前或无故中断，主要是网络不通（或网速太慢）导致的下载问题，此时请重新安装
+Follow our [Graylog image](https://apps.websoft9.com/graylog) for installation on major Cloud Platform.
 
-多种原因导致无法顺利安装，请使用我们在公有云上发布的 [Graylog 镜像](https://apps.websoft9.com/graylog) 的部署方式
+## Documentation
 
+To get information about initial installation, default username and password, HTTPS, SMTP, Backup, Upgrade and more, please view **Graylog Administrator Guide** ([English](https://support.websoft9.com/docs/graylog) | [简体中文](https://support.websoft9.com/docs/graylog/zh))
 
-## 文档
+## Changelog
 
-文档链接：https://support.websoft9.com/docs/graylog/zh
+Detailed changes are documented in the [CHANGELOG](/CHANGELOG.md).
+
+## License
+
+[LGPL-3.0](/License.md), Additional Terms: It is not allowed to publish free or paid image based on this repository in any Cloud platform's Marketplace.
+
+Copyright (c) 2016-present, Websoft9
 
 ## FAQ
 
-- 命令脚本部署与镜像部署有什么区别？请参考[镜像部署-vs-脚本部署](https://support.websoft9.com/docs/faq/zh/bz-product.html#镜像部署-vs-脚本部署)
-- 本项目支持在 Ansible Tower 上运行吗？支持
+#### Can I run this repository on Ansible Tower? 
+
+Yes.
+
+#### How to install and view the latest release？
+
+Get the Graylog version from [Graylog Download page](https://www.graylog.org/downloads#open-source), and modify the Ansible variable **[awx_version](/roles/ansible/defaults/main.yml)** to change the Graylog version for this repository. 
+
+#### Is the default password safe?
+
+Graylog Cloud Installer use the random password solution, every installation have different password, that mean your password is different from other users
