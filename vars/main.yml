@@ -2,11 +2,13 @@ jdk_version: "8"
 
 nginx_listen_port: "9000"
 
+elasticsearch_version: "6.8"
+
 mongodb_version: "4.0"    
 mongodb_root_password: "123456"
 mongodb_root_username: "root"
 
-mongodb_users:  
+mongodb_users: 
   - name: graylog
     database_name: graylog
     password: "123456"
