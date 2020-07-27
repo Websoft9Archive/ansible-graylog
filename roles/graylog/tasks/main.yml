@@ -54,7 +54,7 @@
 # must use sudo sh -c to solve the no-root permission
 - block:
   - name: Check Graylog Version
-    shell: sudo sh -c "echo' 1>> /data/logs/install_version.txt"
+    shell: sudo sh -c 'echo "graylog $((yum info graylog-server || apt show graylog-server)  | grep Version | sed -n 1p)" 1>> /data/logs/install_version.txt'
 
 # check service state
 - name: Check Graylog Service
