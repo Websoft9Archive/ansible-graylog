@@ -1,6 +1,6 @@
 jdk_version: "8"
 
-nginx_listen_port: "9000"
+nginx_reverse_proxy_port: "9000"
 
 elasticsearch_version: "6.8"
 
