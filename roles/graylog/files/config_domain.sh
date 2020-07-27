@@ -9,7 +9,7 @@ do
           rm -rf /etc/graylog/graylog.html
           rm -rf /etc/nginx/conf.d/default.conf
           mv /etc/nginx/conf.d/default*[@]* /etc/nginx/conf.d/default.conf &>> /dev/null
-          sed -i "s/www.example.com/$domain/" /etc/nginx/conf.d/default.conf
+          sed -i "s/-;/$domain;/" /etc/nginx/conf.d/default.conf
           systemctl restart nginx
           echo "Biding domain name successfully!"
           break
