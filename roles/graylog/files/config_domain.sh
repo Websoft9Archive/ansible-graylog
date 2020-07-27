@@ -5,7 +5,7 @@ if [ $dnsre = "n" ]; then echo -e "\nYou must complete your domain name resoluti
 while true;
 do
   read -p "Input You Domain:" domain
-  if [  ! -n $domain ];then
+  if [  ! $domain ];then
           rm -rf /etc/graylog/graylog.html
           rm -rf /etc/nginx/conf.d/default.conf
           mv /etc/nginx/conf.d/default*[@]* /etc/nginx/conf.d/default.conf &>> /dev/null
