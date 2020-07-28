@@ -5,7 +5,7 @@
 
 - name: Install Graylog
   apt:
-    deb: {{graylog_deb_url}}
+    deb: "{{graylog_deb_url}}"
     state: latest
     update_cache: yes
 
