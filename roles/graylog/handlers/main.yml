@@ -1,0 +1,3 @@
+- name: check_graylog_service
+  debug:
+    var: check_graylog_service.stdout
