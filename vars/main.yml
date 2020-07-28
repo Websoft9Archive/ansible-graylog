@@ -5,6 +5,7 @@ common_os_support: ["CentOS", "Ubuntu"]
 nginx_reverse_proxy_port: "9000"
 
 elasticsearch_version: "6.8"
+elasticsearch_clurname: "graylog"
 
 mongodb_version: "4.0"    
 mongodb_root_password: "123456"
