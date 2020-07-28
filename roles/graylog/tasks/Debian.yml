@@ -6,7 +6,7 @@
 - name: Install Graylog
   apt:
     deb: "{{graylog_deb_url}}"
-    state: latest
+    state: present
     update_cache: yes
 
 - name: Install Graylog-Server
