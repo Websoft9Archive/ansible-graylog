@@ -4,8 +4,10 @@
     state: latest
 
 - name: Install Graylog
-  shell:
-    deb: "{{graylog_deb_url}}"
+  apt:
+    deb: {{graylog_deb_url}}
+    state: latest
+    update_cache: yes
 
 - name: Install Graylog-Server
   apt:
