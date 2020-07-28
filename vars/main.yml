@@ -1,5 +1,7 @@
 jdk_version: "8"
 
+common_os_support: ["CentOS", "Ubuntu"]
+
 nginx_reverse_proxy_port: "9000"
 
 elasticsearch_version: "6.8"
