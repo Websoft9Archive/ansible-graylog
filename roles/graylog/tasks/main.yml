@@ -52,6 +52,7 @@
     state: restarted
     enabled: yes
   loop:
+    - elasticsearch
     - graylog-server
     - nginx
 
