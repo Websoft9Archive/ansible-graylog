@@ -19,5 +19,6 @@ docker_applications:
 
 init_db: 
   mongodb:
-    user: root
+    admin: root
+    users: ["graylog"]
     password: "123456"
