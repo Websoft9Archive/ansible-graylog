@@ -10,6 +10,10 @@ do
           rm -rf /etc/nginx/conf.d/default.conf
           mv /etc/nginx/conf.d/default*[@]* /etc/nginx/conf.d/default.conf &>> /dev/null
           sed -i "s/server_name _/server_name $domain/" /etc/nginx/conf.d/default.conf
+          sed -i "s/# web_endpoint_uri/web_endpoint_uri/" /etc/graylog/server/server.conf 
+          sed -i "s/www.example.com/$domain/" /etc/graylog/server/server.conf
+          systemctl restart elasticsearch
+          systemctl restart graylog-server
           systemctl restart nginx
           echo "Biding domain name successfully!"
           break
