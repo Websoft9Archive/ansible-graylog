@@ -5,33 +5,45 @@
 
 # configure Graylog
 
-- name: Copy graylog.html to server
-  copy:
-    src: graylog.html
-    dest: /data/wwwroot
-    owner: nginx
-    group: nginx
-    mode: '0640'
+#- name: Copy graylog.html to server
+#  copy:
+#    src: graylog.html
+#    dest: /data/wwwroot
+#    owner: nginx
+#    group: nginx
+#    mode: '0640'
 
-- name: Copy config_domain.sh to server and set X permission
-  copy:
-    src: config_domain.sh
-    dest: /etc/graylog
-    mode: '0740'
+#- name: Copy config_domain.sh to server and set X permission
+#  copy:
+#    src: config_domain.sh
+#   dest: /etc/graylog
+#    mode: '0740'
 
-- name: Copy new default and backup old default
-  copy:
-    src: default.conf
-    dest: /etc/nginx/conf.d/default.conf
-    backup: yes
+#- name: Copy new default and backup old default
+#  copy:
+#    src: default.conf
+#    dest: /etc/nginx/conf.d/default.conf
+#    backup: yes
 
-- name: change configuration file
-  template:
-    src: server.conf
-    dest: /etc/graylog/server/
-    owner: root
-    group: root
-    mode: 0644
+#- name: change configuration file
+#  template:
+#    src: server.conf
+#    dest: /etc/graylog/server/
+#    owner: root
+#    group: root
+#    mode: 0644
+
+- name: Set graylog config
+  replace:
+    path: /etc/zabbix/apache.conf
+    regexp: '{{item.regexp}}'
+    replace: '{{item.replace}}'
+  with_items:
+    - {regexp: /etc/apache2,replace: /etc/httpd}
+    - {regexp: /usr/sbin/apache2,replace: /usr/sbin/apache}
+    - {regexp: /usr/sbin/apache2,replace: /usr/sbin/httpd}
+    - {regexp: /etc/apache2/sites-enabled,replace: /etc/httpd/conf.d}
+    - {regexp: /etc/apache2,replace: /etc/httpd/conf}
 
 - name: Start Graylog and restart Nginx
   service:
