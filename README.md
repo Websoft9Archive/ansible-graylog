@@ -1,6 +1,6 @@
 # Graylog Cloud Installer
 
-![](https://libs.websoft9.com/common/websott9-cloud-installer.png)
+![](https://libs.websoft9.com/common/websott9-cloud-installer.png) 
 
 ## Introduction
 
