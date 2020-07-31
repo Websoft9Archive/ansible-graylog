@@ -38,7 +38,7 @@
     path: /etc/zabbix/apache.conf
     regexp: '{{item.regexp}}'
     replace: '{{item.replace}}'
-  with_items:
+  loop:
     - {regexp: /etc/apache2,replace: /etc/httpd}
     - {regexp: /usr/sbin/apache2,replace: /usr/sbin/apache}
     - {regexp: /usr/sbin/apache2,replace: /usr/sbin/httpd}
