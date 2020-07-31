@@ -1,5 +1,7 @@
 # Graylog Cloud Installer
 
+![](https://libs.websoft9.com/common/websott9-cloud-installer.png)
+
 ## Introduction
 
 [English](/README.md) | [简体中文](/README_zh.md)  
