@@ -35,15 +35,18 @@
 
 - name: Set graylog config
   replace:
-    path: /etc/zabbix/apache.conf
-    regexp: '{{item.regexp}}'
-    replace: '{{item.replace}}'
+    lineinfile:
+      dest: /etc/graylog/server/server.conf
+      regexp: '{{item.regexp}}'
+      line: '{{item.replace}}'
   loop:
-    - {regexp: /etc/apache2,replace: /etc/httpd}
-    - {regexp: /usr/sbin/apache2,replace: /usr/sbin/apache}
-    - {regexp: /usr/sbin/apache2,replace: /usr/sbin/httpd}
-    - {regexp: /etc/apache2/sites-enabled,replace: /etc/httpd/conf.d}
-    - {regexp: /etc/apache2,replace: /etc/httpd/conf}
+    - {regexp: "#password_secret =",replace: "password_secret = I5EyvUWiQVAhyw1pPjkYlYHowCtqoEsxJOPIxh13A0yFJYoUmMUnGe9wNbomvtUiX1jFkWYYIVW0Q1PadZCG1aaGowJoMRpd"}
+    - {regexp: "#root_username = admin",replace: "root_username = admin"}
+    - {regexp: "#root_password_sha2 =",replace: "root_password_sha2 = 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9"}
+    - {regexp: "#http_bind_address = 0.0.0.0:9000",replace: "http_bind_address = 0.0.0.0:9000"}
+    - {regexp: "#rest_listen_uri =",replace: "rest_listen_uri ="}
+    - {regexp: "#web_endpoint_uri =",replace: "web_endpoint_uri ="}
+    - {regexp: "#web_listen_uri =",replace: "web_listen_uri ="}
 
 - name: Start Graylog and restart Nginx
   service:
