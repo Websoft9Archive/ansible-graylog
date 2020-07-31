@@ -34,11 +34,10 @@
 #    mode: 0644
 
 - name: Set graylog config
-  replace:
-    lineinfile:
-      dest: /etc/graylog/server/server.conf
-      regexp: '{{item.regexp}}'
-      line: '{{item.replace}}'
+  lineinfile:
+    dest: /etc/graylog/server/server.conf
+    regexp: '{{item.regexp}}'
+    line: '{{item.replace}}'
   loop:
     - {regexp: password_secret =,replace: password_secret = I5EyvUWiQVAhyw1pPjkYlYHowCtqoEsxJOPIxh13A0yFJYoUmMUnGe9wNbomvtUiX1jFkWYYIVW0Q1PadZCG1aaGowJoMRpd}
     - {regexp: \#root_username = admin,replace: root_username = admin}
