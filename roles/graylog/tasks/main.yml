@@ -33,6 +33,9 @@
 #    group: root
 #    mode: 0644
 
+- name: set ipaddress
+  shell： ipaddress=$(curl ifconfig.me)
+
 - name: Set graylog config
   lineinfile:
     dest: /etc/graylog/server/server.conf
@@ -43,7 +46,7 @@
     - {regexp: \#root_username = admin,replace: root_username = admin}
     - {regexp: root_password_sha2 =,replace: root_password_sha2 = 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9}
     - {regexp: \#http_bind_address = 127.0.0.1:9000,replace: http_bind_address = 0.0.0.0:9000}
-    - {regexp: \#http_publish_uri =,replace: http_publish_uri = http://}
+    - {regexp: \#http_publish_uri =,replace: http_publish_uri = http://{{ipaddress}}}
 
 - name: Start Graylog and restart Nginx
   service:
