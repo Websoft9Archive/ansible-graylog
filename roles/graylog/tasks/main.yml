@@ -34,7 +34,7 @@
 #    mode: 0644
 
 - name: set ipaddress
-  shell： ipaddress=$(curl ifconfig.me)
+  shell: ipaddress=$(curl ifconfig.me)
 
 - name: Set graylog config
   lineinfile:
