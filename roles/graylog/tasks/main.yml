@@ -33,28 +33,6 @@
 #    group: root
 #    mode: 0644
 
-- name: Copy graylog.html to server
-  copy:
-    src: graylog.html
-    dest: /data/wwwroot
-    owner: nginx
-    group: nginx
-    mode: '0640'
-
-- name: Copy config_domain.sh to server and set X permission
-  copy:
-    src: config_domain.sh
-    dest: /etc/graylog
-    mode: '0740'
-
-- name: change configuration file
-  template:
-    src: server.conf
-    dest: /etc/graylog/server/
-    owner: root
-    group: root
-    mode: 0644
-
 - name: Set graylog config
   lineinfile:
     dest: /etc/graylog/server/server.conf
