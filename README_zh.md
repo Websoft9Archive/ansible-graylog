@@ -29,7 +29,7 @@
 如果版本不是你所要的，如何调整为版本？
 
 1. 通过 [Graylog下载中心](https://www.graylog.org/downloads)查看官方最新版本
-2. 修改本项目的 [role/graylog/defaults/main.yml](roles/grayl/defaults/main.yml) 中的 graylog_deb_url 变量值即可。
+2. 修改本项目的 [role/graylog/defaults/main.yml](roles/graylog/defaults/main.yml) 中的 graylog_deb_url 变量值即可。
 
 ## 安装指南
 
