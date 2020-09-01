@@ -16,6 +16,6 @@
     - { role: role_nginx, tags: "role_nginx" }
     - { role: role_docker, tags: "role_docker" }
     - { role: graylog, tags: "graylog" }
-    - { role: role_initpassword, tags: "role_initpassword" }
+    - { role: role_init, tags: "role_init" }
     - { role: role_preend, tags: "role_preend" }
     - { role: role_end, tags: "role_end" }
