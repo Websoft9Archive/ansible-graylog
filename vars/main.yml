@@ -2,7 +2,10 @@ jdk_version: "8"
 
 common_os_support: ["CentOS", "Ubuntu"]
 
+nginx_certbot: True
 nginx_reverse_proxy_port: "9000"
+nginx_appname: "graylog"
+nginx_vhost_mode: "reverse"
 
 elasticsearch_version: "6.8"
 elasticsearch_clurname: "graylog"
