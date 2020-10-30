@@ -35,7 +35,7 @@ init_application:
     password: "admin123"
     commands:
       - loginpasswd=$(echo -n $new_password | sha256sum | cut -d " " -f 1)
-      - sudo sed -i "s/root_password_sha2 = 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9/root_password_sha2 = $loginpasswd/g" /etc/graylog/server/server.conf
+      - sudo sed -i "s/root_password_sha2 =.*/root_password_sha2 = $loginpasswd/g" /etc/graylog/server/server.conf
       - sudo sed -i 's/#http_publish_uri = .*/http_publish_uri = http':'\/\/'$(curl ifconfig.me)'\//g' /etc/graylog/server/server.conf
       - sudo systemctl restart graylog
       - sudo systemctl restart nginx
