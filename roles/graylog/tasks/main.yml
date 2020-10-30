@@ -11,8 +11,8 @@
   loop:
     - {regexp: password_secret =,replace: password_secret = I5EyvUWiQVAhyw1pPjkYlYHowCtqoEsxJOPIxh13A0yFJYoUmMUnGe9wNbomvtUiX1jFkWYYIVW0Q1PadZCG1aaGowJoMRpd}
     - {regexp: \#root_username = admin,replace: root_username = admin}
-#   - {regexp: root_password_sha2 =,replace: root_password_sha2 = 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9}
-#   - {regexp: \#http_bind_address = 127.0.0.1:9000,replace: http_bind_address = 0.0.0.0:9000}
+    - {regexp: root_password_sha2 =,replace: root_password_sha2 = 240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9}
+    - {regexp: \#http_bind_address = 127.0.0.1\:9000,replace: http_bind_address = 0.0.0.0:9000}
 
 - name: Start Graylog and restart Nginx
   service:
