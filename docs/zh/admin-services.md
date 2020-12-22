@@ -5,10 +5,10 @@
 #### Graylog
 
 ```shell
-sudo systemctl start graylog-server
-sudo systemctl stop graylog-server
-sudo systemctl restart graylog-server
-sudo systemctl status graylog-server
+sudo systemctl start graylog
+sudo systemctl stop graylog
+sudo systemctl restart graylog
+sudo systemctl status graylog
 ```
 
 #### Nginx
