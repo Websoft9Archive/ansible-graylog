@@ -21,7 +21,14 @@ Graylog domain name binding steps:
    }
    ```
 3. Bidding domain name in the Graylog configuration file: */etc/graylog/server/server.conf*
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-biddns-websoft9.png)
+   ```
+   # Specify and uncomment this if you want to include links to the stream in your stream alert mails.
+   # This should define the fully qualified base url to your web interface exactly the same way as it is accessed by your users.
+   #transport_email_web_interface_url = https://graylog.example.com
+
+   Modify it to:
+   transport_email_web_interface_url = https://graylog.yourdomain.com
+   ```
 
 4. Restart service
    ```

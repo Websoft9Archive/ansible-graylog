@@ -34,6 +34,16 @@ Elasticsearch Configuration File: */etc/elasticsearch/elasticsearch.yml*
 Elasticsearch log directory: */var/log/elasticsearch*  
 Elasticsearch directory: */usr/share/elasticsearch*  
 
+### Docker
+
+Docker root directory: */var/lib/docker*  
+Docker image directory: */var/lib/docker/image*   
+Docker daemon.json: please create it when you need and save to to the directory */etc/docker*   
+
+### AdminMongo
+
+AdminMongo is a visual MongoDB management tool, is installed based on Docker.  
+
 ## Ports
 
 You can control(open or shut down) ports by **[Security Group Setting](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** of your Cloud Server whether the port can be accessed from Internet.
@@ -45,6 +55,10 @@ You can run the cmd `netstat -tunlp` to list all used ports, and we list the fol
 | TCP | 80 | HTTP requests for Graylog Console| Required |
 | TCP | 443 | HTTPS requests for Graylog Console | Optional |
 | TCP | 27017 | MongoDB | Optional |
+| TCP | 9000 | Graylog  | Optional |
+| TCP | 9091 | HTTP access to AdminMongo | Optional |
+| TCP | 9200, 9300 | ElasticSearch  | Optional |
+
 
 ## Version
 
@@ -70,11 +84,9 @@ docker -v
 mongodb -V
 
 # Elasticsearch version
+curl -XGET localhost:9200
 
-# graylog  Version
+# Graylog  Version
 yum info graylog
 apt show graylog
-
-# Graylog version
-graylogctl status | grep Graylog*
 ```

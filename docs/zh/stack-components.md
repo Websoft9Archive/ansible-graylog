@@ -38,6 +38,16 @@ Elasticsearch 配置文件: */etc/elasticsearch/elasticsearch.yml*
 Elasticsearch 日志文件: */var/log/elasticsearch*  
 Elasticsearch 安装目录: */usr/share/elasticsearch*  
 
+### Docker
+
+Docker 根目录: */var/lib/docker*  
+Docker 镜像目录: */var/lib/docker/image*   
+Docker daemon.json 文件：默认没有创建，请到 */etc/docker* 目录下根据需要自行创建   
+
+### AdminMongo
+
+AdminMongo是一款可视化 MongoDB 管理工具，在本项目中它基于 Docker 安装。
+
 ## 端口号
 
 在云服务器中，通过 **[安全组设置](https://support.websoft9.com/docs/faq/zh/tech-instance.html)** 来控制（开启或关闭）端口是否可以被外部访问。 
@@ -49,6 +59,9 @@ Elasticsearch 安装目录: */usr/share/elasticsearch*
 | TCP | 80 | HTTP requests for Graylog Console| 必要 |
 | TCP | 443 | HTTPS requests for Graylog Console | 可选 |
 | TCP | 27017 | MongoDB | 可选 |
+| TCP | 9000 | Graylog 端口 | 可选 |
+| TCP | 9091 | HTTP 访问 AdminMongo | 可选 |
+| TCP | 9200, 9300 | ElasticSearch 端口 | 可选 |
 
 ## 版本号
 
@@ -74,11 +87,9 @@ docker -v
 mongodb -V
 
 # Elasticsearch version
+curl -XGET localhost:9200
 
-# graylog  Version
+# Graylog  Version
 yum info graylog
 apt show graylog
-
-# Graylog version
-graylogctl status | grep Graylog*
 ```

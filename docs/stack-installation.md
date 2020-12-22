@@ -10,40 +10,15 @@ If you have completed the Graylog deployment on Cloud Platform, the following st
 
 ## Graylog Installation Wizard
 
-1. Using local Chrome or Firefox to visit the URL *http://DNS* or *http://Internet IP*, you will enter installation wizard of Graylog. You must configure Domain Name for Graylog first.
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-initwizard-websoft9.png)
+1. Using local Chrome or Firefox to visit the URL *http://DNS* or *http://Server's Internet IP*, you can see the login page of Graylog.
+   ![login Graylog websoft9](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-login-websoft9.png)
 
-   * **Configure Domain Name by script**
+2. Input the login account and enter to Graylog Console([Don't have password?](/stack-accounts.md#graylog))  
+   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-console-websoft9.png)
 
-     1. Connect your Graylog Server and run the command below
-        ```
-        bash /etc/graylog/config_domain.sh
-        ```
+3. if you want to bind domain for Graylog, refer to [here](/solution-more.md#domain-binding)
 
-     2. If you input a incorrect Domain Name on the below step, please refer to **Configure Domain Name by manual** to fix it
-
-   
-   * **Configure Domain Name by manual**
-
-     1. Bidding domain name in the graylog configuration file: */etc/graylog/server/server.conf*
-        ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-biddns-websoft9.png)
-     
-     2. Bidding domain name in the Nginx configuration file: */etc/nginx/sites-available/default*
-        ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-nginx-websoft9.png)
-
-     3. Restart service
-        ```
-        sudo systemctl restart graylog-server
-        sudo systemctl restart nginx
-        ```
-
-2. Log in to Graylog web console([Don't have password?](/stack-accounts.md#graylog))  
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-login-websoft9.png)
-
-3. Start the experience of Graylog now
-   ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-adminui-websoft9.png)
-
-> More useful Graylog guide, please refer to [Configuring Graylog](https://docs.graylog.org/en/3.3/pages/configuration.html)
+> More useful Graylog guide, please refer to [Configuring Graylog](https://docs.graylog.org/en/latest/pages/configuration.html)
 
 ## Q&A
 

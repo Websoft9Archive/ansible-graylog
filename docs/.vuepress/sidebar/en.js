@@ -32,6 +32,7 @@ module.exports = [
           '/admin-mongodb',
           ['https://support.websoft9.com/docs/linux/lang-java.html','Java'],
           ['https://support.websoft9.com/docs/linux/lang-nginx.html','Nginx'],
+          ['https://support.websoft9.com/docs/elasticsearch','Elasticsearch'],
           ['https://support.websoft9.com/docs/linux/admin-practices.html','Linux'],
         ]
       },

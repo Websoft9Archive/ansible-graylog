@@ -3,6 +3,21 @@
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
 
+- name: Create Graylog User
+  user:
+    name: graylog
+    shell: /bin/bash
+
+- name: Create Graylog dir
+  file: 
+    path: "{{item}}"
+    state: directory
+    owner: graylog
+    group: graylog
+    mode: '0750'
+  with_items:
+    - /data/wwwroot/graylog
+
 - name: Set graylog config
   lineinfile:
     dest: /etc/graylog/server/server.conf
@@ -26,12 +41,20 @@
     - nginx
 
 # set soft link
-- name: set soft link
-  shell: |
-    ln -sf /etc/graylog  /data/config
-    ln -sf /var/log/graylog-server/server.log  /data/logs
-    ln -sf /usr/share/graylog-server  /data/wwwroot/graylog-server
-    ln -sf /usr/lib/systemd/system/graylog-server.service  /usr/lib/systemd/system/graylog.service
+# create link
+- name: Create link
+  file:
+    src: '{{item.src}}'
+    dest: '{{item.dest}}'
+    state: link
+    force: yes
+  with_items:
+    - {src: /usr/share/graylog-server,dest: /data/wwwroot/graylog}
+    - {src: /etc/graylog,dest: /data/config}
+    - {src: /etc/graylog,dest: /data/wwwroot/graylog/config}
+    - {src: /var/log/graylog-server/server.log,dest: /data/logs}
+    - {src: /var/log/graylog-server/server.log,dest: /data/wwwroot/graylog}
+    - {src: /usr/lib/systemd/system/graylog-server.service,dest: /usr/lib/systemd/system/graylog.service}
 
 # Check version,
 # must use sudo sh -c to solve the no-root permission
