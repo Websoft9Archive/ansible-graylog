@@ -1,6 +1,8 @@
-- name: RPM Graylog
-  shell: rpm -Uvh {{graylog_rpm_url}}
-
+- name: Install RPM Graylog
+  yum:
+    name: "{{graylog_rpm_url}}"
+    state: latest
+    
 - name: Install Graylog-Server
   yum:
     name: graylog-server
