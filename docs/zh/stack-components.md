@@ -10,9 +10,9 @@ Graylog 预装包包含 Graylog 运行所需一序列支撑软件（简称为“
 
 ### Graylog
 
-Graylog 安装路径: */usr/share/graylog-server*  
-Graylog 配置文件: */etc/graylog/server/server.conf*  
-Graylog 日志文件: */var/log/graylog-server/server.log*  
+Graylog 安装路径: */data/wwwroot/graylog*  
+Graylog 配置文件: */data/config/graylog/server/server.conf*  
+Graylog 日志文件: */data/logs/server.log*  
 
 ### OpenJDK
 

@@ -6,9 +6,9 @@ The Graylog deployment package contains a sequence software (referred to as "com
 
 ### Graylog
 
-Graylog Directory: */usr/share/graylog-server*  
-Graylog configuration file: */etc/graylog/server/server.conf*  
-Graylog log file: */var/log/graylog-server/server.log*  
+Graylog Directory: */data/wwwroot/graylog*  
+Graylog configuration file: */data/config/graylog/server/server.conf*  
+Graylog log file: */data/logs/server.log* 
 
 ### OpenJDK
 
