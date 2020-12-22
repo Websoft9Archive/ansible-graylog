@@ -50,7 +50,7 @@
     force: yes
   with_items:
     - {src: /usr/share/graylog-server/,dest: /data/wwwroot/graylog}
-    - {src: /etc/graylog/,dest: /data/config}
+    - {src: /etc/graylog/,dest: /data/config/graylog}
     - {src: /etc/graylog/,dest: /data/wwwroot/graylog/config}
     - {src: /var/log/graylog-server/server.log,dest: /data/logs/server.log}
     - {src: /var/log/graylog-server/server.log,dest: /data/wwwroot/graylog/server.log}
