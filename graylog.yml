@@ -10,9 +10,6 @@
   roles:
     - { role: role_common , tags: "role_common"} 
     - { role: role_cloud, tags: "role_cloud" }
-    - { role: role_jdk, tags: "role_jdk" }
-    - { role: role_elasticsearch , tags: "role_elasticsearch" }
-    - { role: role_mongodb, tags: "role_mongodb" }
     - { role: role_nginx, tags: "role_nginx" }
     - { role: role_docker, tags: "role_docker" }
     - { role: graylog, tags: "graylog" }

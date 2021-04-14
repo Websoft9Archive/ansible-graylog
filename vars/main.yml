@@ -1,41 +1,21 @@
-jdk_version: "8"
+common_install_docker: True
+docker_install: False
 
-common_os_support: ["CentOS", "Ubuntu"]
-
-nginx_certbot: True
 nginx_reverse_proxy_port: "9000"
-nginx_appname: "graylog"
-nginx_vhost_mode: "reverse"
 
-elasticsearch_version: "6.8"
-elasticsearch_clurname: "graylog"
-
-mongodb_version: "4.0"    
-mongodb_root_password: "123456"
-mongodb_root_username: "root"
-
-mongodb_users: 
-  - name: graylog
-    database_name: graylog
-    password: "123456"
-    roles: readWrite
-
-docker_applications: 
+docker_applications:
   - adminmongo
 
-init_db: 
-  mongodb:
-    admin: root
-    users: ["graylog"]
-    password: "123456"
-    
-init_application:
+init_docker:
   graylog:
-    username: admin
-    password: "admin123"
-    commands:
-      - loginpasswd=$(echo -n $new_password | sha256sum | cut -d " " -f 1)
-      - sudo sed -i "s/root_password_sha2 =.*/root_password_sha2 = $loginpasswd/g" /etc/graylog/server/server.conf
-      - sudo sed -i 's/#http_publish_uri = .*/http_publish_uri = http':'\/\/'$(curl ifconfig.me)'\//g' /etc/graylog/server/server.conf
-      - sudo systemctl restart graylog
-      - sudo systemctl restart nginx
+    admin_username: admin
+    admin_password: "admin"
+    service_after: "docker.service"
+    compose_path: "/data/wwwroot/graylog/docker-compose-production.yml"
+    compose_commands:
+      - sha_password=$(echo -n $new_password | sha256sum | awk '{ print $1 }')
+      - public_ip=`wget -O - https://download.websoft9.com/ansible/get_ip.sh | bash`
+      - sed -i "s/127.0.0.1/$public_ip/g" /data/wwwroot/graylog/docker-compose-production.yml
+      - sed -i "s/8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918/$sha_password/g" /data/wwwroot/graylog/docker-compose-production.yml
+    volumes:
+      - /data/wwwroot/graylog/volumes
