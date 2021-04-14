@@ -17,3 +17,5 @@ init_docker:
       - sed -i "s/8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918/$sha_password/g" /data/wwwroot/graylog/docker-compose-production.yml
     volumes:
       - /data/wwwroot/graylog/volumes
+      - /var/lib/docker/volumes/graylog_elasticsearch  
+      - /var/lib/docker/volumes/graylog_graylog
