@@ -5,6 +5,7 @@
   git:
     repo: "{{graylog_git_url}}"
     dest: "/data/wwwroot/graylog"
+    version: dev
 
 - name: Create dir for graylog
   file: 
