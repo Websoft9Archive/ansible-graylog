@@ -28,7 +28,7 @@
     state: link
     force: yes
   with_items:
-  - {src: /data/wwwroot/graylog/volumes/mongo-data/,dest: /data/db/mongodb/}
+  - {src: /data/wwwroot/graylog/volumes/mongodb/,dest: /data/db/mongodb/}
 
 # check service and version
 - name: Check graylog service 
