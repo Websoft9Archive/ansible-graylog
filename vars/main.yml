@@ -15,6 +15,6 @@ init_docker:
     compose_commands:
       - sha_password=$(echo -n $new_password | sha256sum | awk '{ print $1 }')
       - sed -i "s/8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918/$sha_password/g" /data/wwwroot/graylog/docker-compose-production.yml
-      - docker volume rm  graylog_elasticsearch graylog_graylog
+      - docker volume prune -f
     volumes:
       - /data/wwwroot/graylog/volumes
