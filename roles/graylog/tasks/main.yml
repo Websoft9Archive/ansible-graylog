@@ -14,11 +14,6 @@
   loop: 
     - /data/wwwroot/graylog/volumes
     - /data/db/mongodb
-
-- name: Bind public network IP
-  shell: |
-    public_ip=`wget -O - https://download.websoft9.com/ansible/get_ip.sh | bash`
-    sed -i "s/127.0.0.1/$public_ip/g" /data/wwwroot/graylog/docker-compose-production.yml
     
 - name: Run docker-compose 
   shell: | 
@@ -27,7 +22,7 @@
   args:
     chdir: /data/wwwroot/graylog
 
-# knowage nginx rewrite setting and restart nginx
+# graylog nginx rewrite setting and restart nginx
 - name: knowage nginx rewrite setting
   lineinfile:
     path: /etc/nginx/conf.d/default.conf
