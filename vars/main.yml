@@ -14,8 +14,6 @@ init_docker:
     compose_path: "/data/wwwroot/graylog/docker-compose-production.yml"
     compose_commands:
       - sha_password=$(echo -n $new_password | sha256sum | awk '{ print $1 }')
-      - public_ip=`wget -O - https://download.websoft9.com/ansible/get_ip.sh | bash`
-      - sed -i "s/127.0.0.1/$public_ip/g" /data/wwwroot/graylog/docker-compose-production.yml
       - sed -i "s/8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918/$sha_password/g" /data/wwwroot/graylog/docker-compose-production.yml
     volumes:
       - /data/wwwroot/graylog/volumes
