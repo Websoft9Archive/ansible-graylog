@@ -37,4 +37,4 @@ jobs:
           fi
           
           git remote set-url --push origin "$DESTINATION_REPO"
-          git push
+          git push origin main
