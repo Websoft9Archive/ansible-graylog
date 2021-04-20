@@ -37,7 +37,7 @@ jobs:
           fi
           
           git remote set-url --push origin "$DESTINATION_REPO"
-          git push --all
+          git push --mirror
           git fetch -p origin
           git for-each-ref --format 'delete %(refname)' refs/pull | git update-ref --stdin
-          git push --all
+          git push --mirror
