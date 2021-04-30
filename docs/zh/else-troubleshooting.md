@@ -25,3 +25,10 @@ systemctl status graylog-server
 journalctl -u graylog-server
 ```
 
+#### 提示 There is a node without any running inputs. This means ... ？
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/graylog-nofiinput-websoft9.png)
+
+**原因**：这只是一个当前没有 input 的提醒，并非错误。  
+**方案**：新建一个本地的 input，即可消除此提醒
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/graylog-createinput-websoft9.png)

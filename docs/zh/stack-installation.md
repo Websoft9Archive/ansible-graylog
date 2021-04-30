@@ -20,6 +20,8 @@
 
 > 需要了解更多 Graylog 的使用，请参考官方文档：[Configuring Graylog](https://docs.graylog.org/en/latest/pages/configuration.html)
 
+## Graylog 入门向导
+
 
 ## 常见问题
 
