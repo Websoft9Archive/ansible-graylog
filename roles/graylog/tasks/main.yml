@@ -16,7 +16,9 @@
     
 - name: Run docker-compose 
   shell: | 
-    docker-compose -f docker-compose-production.yml up -d
+    mv docker-compose-production.yml docker-compose.yml
+    mv .env_all .env
+    docker-compose up -d
     sleep 30
   args:
     chdir: /data/wwwroot/graylog
