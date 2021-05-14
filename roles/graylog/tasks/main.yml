@@ -30,7 +30,7 @@
   lineinfile:
     path: /etc/nginx/conf.d/default.conf
     regexp: '^.*proxy_pass.*$'
-    line: 'rewrite ^ $scheme://$host:9000;'
+    line: 'rewrite ^ $scheme://$host:9001;'
     state: present
     backrefs: yes
 
