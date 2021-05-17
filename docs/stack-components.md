@@ -55,7 +55,7 @@ You can run the cmd `netstat -tunlp` to list all used ports, and we list the fol
 | TCP | 80 | HTTP requests for Graylog Console| Required |
 | TCP | 443 | HTTPS requests for Graylog Console | Optional |
 | TCP | 27017 | MongoDB | Optional |
-| TCP | 9000 | Graylog  | Optional |
+| TCP | 9001 | Graylog  | Optional |
 | TCP | 9091 | HTTP access to AdminMongo | Optional |
 | TCP | 9200, 9300 | ElasticSearch  | Optional |
 
