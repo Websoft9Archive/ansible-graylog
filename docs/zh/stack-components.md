@@ -59,7 +59,7 @@ AdminMongo是一款可视化 MongoDB 管理工具，在本项目中它基于 Doc
 | TCP | 80 | HTTP requests for Graylog Console| 必要 |
 | TCP | 443 | HTTPS requests for Graylog Console | 可选 |
 | TCP | 27017 | MongoDB | 可选 |
-| TCP | 9000 | Graylog 端口 | 可选 |
+| TCP | 9001 | Graylog 端口 | 可选 |
 | TCP | 9091 | HTTP 访问 AdminMongo | 可选 |
 | TCP | 9200, 9300 | ElasticSearch 端口 | 可选 |
 
