@@ -5,10 +5,10 @@ These commands you must know when you using the Graylog of Websoft9
 #### Graylog
 
 ```shell
-sudo systemctl start graylog
-sudo systemctl stop graylog
-sudo systemctl restart graylog
-sudo systemctl status graylog
+sudo docker start graylog
+sudo docker stop graylog
+sudo docker restart graylog
+sudo docker status graylog
 ```
 
 #### Nginx
@@ -22,15 +22,17 @@ sudo systemctl restart nginx
 #### MongoDB
 
 ```shell
-sudo systemctl start mongod
-sudo systemctl stop mongod
-sudo systemctl restart mongod
+sudo docker start graylog-mongo
+sudo docker stop graylog-mongo
+sudo docker restart graylog-mongo
+sudo docker status graylog-mongo
 ```
 
 #### Elasticsearch
 
 ```shell
-sudo systemctl start elasticsearch
-sudo systemctl stop elasticsearch
-sudo systemctl restart elasticsearch
+sudo docker start graylog-elasticsearch
+sudo docker stop graylog-elasticsearch
+sudo docker restart graylog-elasticsearch
+sudo docker status graylog-elasticsearch
 ```
