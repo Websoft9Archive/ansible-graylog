@@ -18,10 +18,11 @@
 
 3. 如果需要，可以给 [Graylog 绑定域名](/zh/solution-more.md#域名绑定)
 
-> 需要了解更多 Graylog 的使用，请参考官方文档：[Configuring Graylog](https://docs.graylog.org/en/latest/pages/configuration.html)
+> 需要了解更多 Graylog 的使用，请参考官方文档：[Configuring Graylog](https://docs.graylog.org/en/latest/pages/installation/docker.html)
 
 ## Graylog 入门向导
 
+下面以 Graylog 连接一个数据源，并作出分析为范例作为范例：
 
 ## 常见问题
 
@@ -36,6 +37,10 @@
 #### 不配置域名可以使用 Graylog 吗？
 
 可以
+
+#### 本部署方案是如何部署 Graylog 的？
+
+基于官方提供的 [Docker 部署方案](https://docs.graylog.org/en/latest/pages/installation/docker.html)
 
 #### 如何修改域名配置？
 

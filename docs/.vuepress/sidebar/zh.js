@@ -31,7 +31,7 @@ module.exports = [
     children: [
       '/zh/admin-services',
       '/zh/admin-mongodb',
-      ['https://support.websoft9.com/docs/linux/zh/lang-java.html','Java'],
+      ['https://support.websoft9.com/docs/docker/zh','Docker'],
       ['https://support.websoft9.com/docs/linux/zh/webs-nginx.html','Nginx'],
       ['https://support.websoft9.com/docs/elasticsearch/zh','Elasticsearch'],
       ['https://support.websoft9.com/docs/linux/zh/admin-practices.html','Linux'],
