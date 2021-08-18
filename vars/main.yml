@@ -17,7 +17,7 @@ init_docker:
       - public_ip=`wget -O - https://download.websoft9.com/ansible/get_ip.sh | bash`
       - sudo sed -i "s#APP_SITE_URL=.*#APP_SITE_URL=http://$public_ip:9001/#g" /data/wwwroot/graylog/.env
       - sha_password=$(echo -n $new_password | sha256sum | awk '{ print $1 }')
-      - sudo sed -i "s/${APP_PASSWORD}/$sha_password/g" /data/wwwroot/graylog/docker-compose.yml
+      - sudo sed -i "s/\${APP_PASSWORD}/$sha_password/g" /data/wwwroot/graylog/docker-compose.yml
       - sudo docker volume prune -f
     volumes:
       - /data/wwwroot/graylog/volumes
