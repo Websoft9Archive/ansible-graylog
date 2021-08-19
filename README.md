@@ -6,7 +6,7 @@
 
 [English](/README.md) | [简体中文](/README-zh.md)  
 
-**graylog Cloud Installer**, developed by [Websoft9](https://www.websoft9.com), is an automatic installation program of [graylog](https://graylog.io/) based on Ansible and shell. It helps user install graylog and pre-configure required items automatically and users only need to run a command on Linux. It simplifies the complicated installation and initialization process.  
+**graylog Cloud Installer**, developed by [Websoft9](https://www.websoft9.com), is an automatic installation program of [graylog](https://www.graylog.org/) based on Ansible and shell. It helps user install graylog and pre-configure required items automatically and users only need to run a command on Linux. It simplifies the complicated installation and initialization process.  
 
 ## System Requirement
 
