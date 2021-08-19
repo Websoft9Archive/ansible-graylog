@@ -9,7 +9,7 @@
   "requirements_disk": "20",
   "requirements_swap": "2",
   "requirements_configure_url": "https://docs.graylog.org/en/latest/pages/installation.html#system-requirements",
-  "components": "Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch",
+  "components": "Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch on docker",
   "install_way": {
     "en": "Docker install",
     "zh": "Docker 安装"
