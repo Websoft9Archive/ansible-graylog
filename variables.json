@@ -1,7 +1,7 @@
 {
   "name": "graylog",
   "trademark": "graylog",
-  "official_url": "https://graylog.io/",
+  "official_url": "https://www.graylog.org/",
   "support_os": "CentOS7.x, Ubuntu20.04, Amazon Linux2",
   "requirements_cpu": "1",
   "requirements_memory": "4",
