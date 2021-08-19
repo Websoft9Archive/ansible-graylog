@@ -20,7 +20,7 @@
 
 ## 组件
 
-包含的核心组件为：Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch  
+包含的核心组件为：Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch on docker  
 
 更多请见: [参数表](/docs/zh/stack-components.md)。
 

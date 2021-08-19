@@ -23,7 +23,7 @@ To learn more information, please view [Installation & Configuration](https://do
 
 ## Ecosystem
 
-Core components of this repository: Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch
+Core components of this repository: Graylog, Nginx, MongoDB, OpenJDK, Docker, AdminMongo on docker, Elasticsearch on docker
 
 Learn more about [Parameters](/docs/stack-components.md).
 
