@@ -34,3 +34,22 @@
    sudo systemctl restart nginx
    sudo systemctl restart graylog-server
    ```
+
+## 集群
+
+我们知道，Graylog 运行时，包括如下软件：  
+
+* Graylog 日志采集、分析
+* ElasticSearch 日志存储
+* MongoDB 系统配置系统
+
+Graylog 支持如下最简答的部署方式：  
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/graylog-minisetup-websoft9.png)
+
+也支持复杂的[集群](https://docs.graylog.org/v1/docs/multinode-setup)部署：  
+![Graylog 集群部署架构图](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/graylog-hasetup-websoft9.png)
+
+其中，MongoDB 实际上可以不做集群。  
+
+> 更多信息参考官方的[架构指南](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)
+
