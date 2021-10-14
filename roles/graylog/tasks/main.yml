@@ -15,9 +15,7 @@
     - /data/db/mongodb
     
 - name: Set up extranet access, Rename, Run docker-compose
-  shell: | 
-    mv docker-compose-production.yml docker-compose.yml
-    mv .env_all .env
+  shell: |
     public_ip=`wget -O - https://download.websoft9.com/ansible/get_ip.sh | bash`
     sudo sed -i "s/127.0.0.1/$public_ip/g" .env
     docker-compose up -d
