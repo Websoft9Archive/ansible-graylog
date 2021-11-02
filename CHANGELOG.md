@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Graylog v4.2-1 2021-11-2
+### Fixes and Enhancements
+- update to 4.2
 
 ## Graylog v4.1.3-1 2021-08-24
 ### Fixes and Enhancements
