@@ -32,3 +32,8 @@ journalctl -u graylog-server
 **方案**：新建一个本地的 input，即可消除此提醒
 
 ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/graylog-createinput-websoft9.png)
+
+
+#### Index rotation strategy null not found... ?
+
+磁盘可用空间低于 15% 的时候，会出现这个问题

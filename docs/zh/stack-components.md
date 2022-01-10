@@ -21,12 +21,23 @@ f4cd00fc5f58   docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2   "/tini
 ### Graylog
 
 Graylog 安装路径: */data/wwwroot/graylog*  
-Graylog 配置文件: */data/config/graylog/server/server.conf*  
-Graylog 日志文件: */data/logs/server.log*  
+Graylog 配置文件: */data/wwwroot/volumes/graylog/config/server.conf*  
+Graylog 日志目录: */data/wwwroot/volumes/graylog/log*  
 
-### OpenJDK
+### MongoDB
 
-Java 虚拟机: */usr/lib/jvm*  
+MongoDB 配置文件: */data/db/mongo*  
+MongoDB 数据目录: */data/db/mongo/db*  
+
+### Elasticsearch
+
+Elasticsearch 数据目录: */data/db/elasticsearch*  
+
+### Docker
+
+Docker 根目录: */var/lib/docker*  
+Docker 镜像目录: */var/lib/docker/image*   
+Docker daemon.json 文件：默认没有创建，请到 */etc/docker* 目录下根据需要自行创建   
 
 ### Nginx
 
@@ -34,25 +45,6 @@ Nginx 虚拟主机配置文件: */etc/nginx/conf.d/default.conf*
 Nginx 主配置文件: */etc/nginx/nginx.conf*   
 Nginx 日志文件: */var/log/nginx*  
 Nginx 伪静态配置目录: */etc/nginx/conf.d/rewrite* 
-
-### MongoDB
-
-MongoDB 配置文件: */etc/mongod.conf*  
-MongoDB 数据目录: */var/lib/mongodb*  
-MongoDB 日志文件: */var/log/mongodb/mongod.log*  
-MongoDB 可执行文件: */usr/bin*  
-
-### Elasticsearch
-
-Elasticsearch 配置文件: */etc/elasticsearch/elasticsearch.yml*  
-Elasticsearch 日志文件: */var/log/elasticsearch*  
-Elasticsearch 安装目录: */usr/share/elasticsearch*  
-
-### Docker
-
-Docker 根目录: */var/lib/docker*  
-Docker 镜像目录: */var/lib/docker/image*   
-Docker daemon.json 文件：默认没有创建，请到 */etc/docker* 目录下根据需要自行创建   
 
 ### AdminMongo
 
@@ -87,19 +79,15 @@ lsb_release -a
 # Nginx  Version
 nginx -V
 
-# Java version
-java -v
-
 # Docker Version
 docker -v
 
-# MongoDB version
-mongodb -V
+# Graylog Version
+docker images |grep graylog/graylog |awk '{print $2}'
 
 # Elasticsearch version
-curl -XGET localhost:9200
+docker exec -it graylog-elasticsearch curl -XGET localhost:9200
 
-# Graylog  Version
-yum info graylog
-apt show graylog
+# Mongo version
+docker exec -it graylog-mongo mongo --version
 ```
