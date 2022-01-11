@@ -22,7 +22,7 @@ If you have completed the Graylog deployment on Cloud Platform, the following st
 
 ## Q&A
 
-#### I can't visit the start page of AWX?
+#### I can't visit the start page of Graylog?
 
 Your TCP:80 of Security Group Rules is not allowed so there no response from Chrome or Firefox
 
@@ -32,4 +32,4 @@ No, you must configure Domain Name for Graylog, otherwise it not work
 
 #### I want to modify my Domain Name?
 
-You can modify Domain Name by */etc/nginx/sites-available/default* and */etc/graylog/server/server.conf*
+You can modify Domain Name by */etc/nginx/sites-available/default* and */data/wwwroot/volumes/graylog/config/server.conf*

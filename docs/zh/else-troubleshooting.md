@@ -21,11 +21,12 @@ df -lh
 free -lh
 
 # 查看服务状态和日志
-systemctl status graylog-server
-journalctl -u graylog-server
+sudo docker logs graylog
+sudo docker stats graylog
 ```
 
 #### 提示 There is a node without any running inputs. This means ... ？
+
 ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/graylog-nofiinput-websoft9.png)
 
 **原因**：这只是一个当前没有 input 的提醒，并非错误。  

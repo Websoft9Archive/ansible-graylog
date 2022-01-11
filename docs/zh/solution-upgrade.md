@@ -24,4 +24,21 @@ yum update -y --skip-broken
 
 ## Graylog升级
 
-详情参考官方升级文档：[Upgrading Graylog](https://docs.graylog.org/en/3.3/pages/installation/operating_system_packages.html#operating-package-upgrade-rpm-yum-dnf)
+Graylog 基于 Docker 部署，其升级流程：拉取镜像 > 删除容器 > 重建容器
+
+> 升级之前请确保您已经完成了服务器的镜像（快照）备份
+
+1. 登录服务器，编辑 */data/wwwroot/graylog/.env* 文件，将版本变量的值修改为目标版本号
+
+2. 拉取目标版本的镜像
+   ```
+   cd /data/wwwroot/graylog
+   docker-compose pull
+   ```
+   > 如果显示没有镜像可拉取，则无需升级
+
+3. 删除旧容器，重新创建 Graylog 容器
+    ```
+    docker-compose down
+    docker-compose up -d
+    ```

@@ -8,7 +8,7 @@ Graylog 预装包包含 Graylog 运行所需一序列支撑软件（简称为“
 
 ## 路径
 
-本部署方案中的 RabbitMQ 采用 Docker 部署，运行 `docker ps` 查看运行的容器。  
+本部署方案中的 Graylog 采用 Docker 部署，运行 `docker ps` 查看运行的容器。  
 
 ```
 CONTAINER ID   IMAGE                                                      COMMAND                  CREATED         STATUS                   PORTS                                                                                                                                                                                                                           NAMES

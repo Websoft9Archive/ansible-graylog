@@ -17,4 +17,11 @@ Follow is the sample using **SendGrid's SMTP Service** to configure sending mail
    ```
 2. Refer to [Official email setting](https://docs.graylog.org/en/3.3/pages/configuration/server.conf.html#email) by editing the email Graylog configuration file: */etc/graylog/server/server.conf*
 
-More SMTP Service(Gmail, Hotmail, QQ mail, Yahoo mail, SendGrid and so on)  settings or Issues with SMTP, please refer to Websoft9's *[SMTP Guide](https://support.websoft9.com/docs/faq/tech-smtp.html)*
+3. Modify the items **[transport_email](https://docs.graylog.org/en/3.3/pages/configuration/server.conf.html#email)**  of Graylog configuration file
+
+4. Restart Graylog service
+   ```
+   sudo docker restart graylog
+   ```
+
+More SMTP Service(Gmail, HotMail, QQ mail, Yahoo mail, SendGrid and so on)  settings or Issues with SMTP, please refer to Websoft9's *[SMTP Guide](https://support.websoft9.com/docs/faq/tech-smtp.html)*

@@ -44,4 +44,5 @@
 
 #### 如何修改域名配置？
 
-修改 */etc/nginx/sites-available/default* 和 */etc/graylog/server/server.conf* 中域名有关的部分
+1. 修改 */etc/nginx/sites-available/default* 的 server_name
+2. 修改 */data/wwwroot/docker-graylog/.env* 中 APP_SITE_URL

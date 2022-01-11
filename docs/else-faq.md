@@ -1,9 +1,5 @@
 # FAQ
 
-#### Can I reset password of Graylog by command?
-
-coming soon...
-
 #### If there is no domain name, can I deploy Graylog?
 
 No, you must configure domain name for Graylog
@@ -18,7 +14,7 @@ Yes, AdminMongo is on it, visit by *http://Internet IP:9091*
 
 #### Is it possible to modify the source path of Graylog?
 
-NO
+Yes
 
 #### How to change the permissions of filesytem?
 

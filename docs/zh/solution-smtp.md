@@ -15,7 +15,11 @@
    SMTP username: websoft9@163.com
    SMTP password: #wwBJ8    //此密码不是邮箱密码，是需要通过163邮箱后台设置去获取的授权码
    ```
-2. Refer to [Official email setting](https://docs.graylog.org/en/3.3/pages/configuration/server.conf.html#email) by editing the email Graylog configuration file: */etc/graylog/server/server.conf*
+2. 修改 Graylog 配置文件中的 Refer to [transport_email 参数](https://docs.graylog.org/en/3.3/pages/configuration/server.conf.html#email) 
 
+3. 重启 Graylog 后生效
+   ```
+   sudo docker restart graylog
+   ```
 
 更多邮箱设置（QQ邮箱，阿里云邮箱，Gmail，Hotmail等）以及无法发送邮件等故障之诊断，请参考由Websoft9提供的 [SMTP 专题指南](https://support.websoft9.com/docs/faq/zh/tech-smtp.html)

@@ -26,4 +26,21 @@ yum update -y --skip-broken
 
 ## Graylog Upgrade
 
-Refer to the official docs: [Upgrading Graylog](https://docs.graylog.org/en/3.3/pages/installation/operating_system_packages.html#operating-package-upgrade-rpm-yum-dnf)
+This deployment solution is based on Docker and so you can upgrade Graylog by the standard process of Docker:  
+
+> You should complete an image or snapshot backup for instance before upgrade
+
+1. Use **SFTP** to login Server, modify **APP_VERSION** in the **.env** file of Graylog directory
+
+2. Go to the Graylog root directory, then pull new images
+   ```
+   cd /data/wwwroot/rabbitmq
+   docker-compose pull
+   ```
+3. Delete old container and recreate new container
+   ```
+   docker-compose down
+   docker-compose up -d
+   ```
+
+More details refer to the official docs: [Upgrading Graylog](https://docs.graylog.org/en/3.3/pages/installation/operating_system_packages.html#operating-package-upgrade-rpm-yum-dnf)

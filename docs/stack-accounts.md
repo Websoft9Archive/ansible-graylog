@@ -9,12 +9,12 @@ These accounts are required for Graylog image installation and configuration
 ## Graylog
 
 * Graylog administrator username: `admin`
-* Graylog administrator password: `admin123` or stored in the file of your server */credentials/password.txt*
+* Graylog administrator password: Stored in the file of your server */credentials/password.txt*
 
 ## MongoDB
 
-* MySQL administrator username: `root`
-* MySQL administrator password: stored in the file of your server */credentials/password.txt*  
+* MongoDB administrator username: `root`
+* MongoDB administrator password: stored in the file of your server */credentials/password.txt*  
 
 ## Linux
 

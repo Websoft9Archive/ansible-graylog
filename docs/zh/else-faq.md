@@ -4,13 +4,13 @@
 
 暂时没有方案
 
-#### Graylog 与 数据库有什么关系？
+#### Graylog 的系统架构是什么样的？
 
-![](http://docs.graylog.org/en/3.1/_images/architec_small_setup.png)
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/architec_bigger_setup.png)
 
 #### 如果没有域名是否可以部署 Graylog？
 
-不可以，必须[配置域名](/zh/more.md)方可使用
+可以，直接端口访问即可
 
 #### 数据库 root 用户对应的密码是多少？
 
@@ -22,7 +22,7 @@
 
 #### 是否可以修改 Graylog 的源码路径？
 
-不可以
+可以
 
 #### 如何修改上传的文件权限?
 

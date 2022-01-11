@@ -4,15 +4,21 @@ The Graylog deployment package contains a sequence software (referred to as "com
 
 ## Path
 
+This solution use Docker to deploy all service, you can run the command `docker ps` to list them  
+
+```
+CONTAINER ID   IMAGE                                                      COMMAND                  CREATED         STATUS                   PORTS                                                                                                                                                                                                                           NAMES
+dffc0d802a26   graylog/graylog:4.1                                        "/usr/bin/tini -- wa…"   2 minutes ago   Up 2 minutes (healthy)   0.0.0.0:1514->1514/tcp, 0.0.0.0:1514->1514/udp, :::1514->1514/tcp, :::1514->1514/udp, 0.0.0.0:12201->12201/tcp, 0.0.0.0:12201->12201/udp, :::12201->12201/tcp, :::12201->12201/udp, 0.0.0.0:9001->9000/tcp, :::9001->9000/tcp   graylog
+7c0a42a383c3   mongo:4.2                                                  "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes             27017/tcp                                                                                                                                                                                                                       graylog-mongo
+f4cd00fc5f58   docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2   "/tini -- /usr/local…"   2 minutes ago   Up 2 minutes             9200/tcp, 9300/tcp                                                                                                                                                                                                              graylog-elasticsearch
+9497147a0263   mrvautin/adminmongo                                        "docker-entrypoint.s…"   8 minutes ago   Up 3 minutes             0.0.0.0:9091->1234/tcp, :::9091->1234/tcp                                                                                                                                                                                       adminmongo
+```
+
 ### Graylog
 
 Graylog Directory: */data/wwwroot/graylog*  
-Graylog configuration file: */data/config/graylog/server/server.conf*  
-Graylog log file: */data/logs/server.log* 
-
-### OpenJDK
-
-Java directory: */usr/lib/jvm*  
+Graylog configuration file: */data/wwwroot/volumes/graylog/config/server.conf*  
+Graylog log directory: */data/wwwroot/volumes/graylog/log* 
 
 ### Nginx
 
@@ -23,26 +29,24 @@ Nginx rewrite rules directory: */etc/nginx/conf.d/rewrite*
 
 ### MongoDB
 
-MongoDB configuration file: */etc/mongod.conf*  
-MongoDB data directory: */var/lib/mongodb*  
-MongoDB log file: */var/log/mongodb/mongod.log*  
-MongoDB bin directory: */usr/bin*  
+MongoDB directory: */data/db/mongo*  
 
 ### Elasticsearch
 
-Elasticsearch Configuration File: */etc/elasticsearch/elasticsearch.yml*  
-Elasticsearch log directory: */var/log/elasticsearch*  
-Elasticsearch directory: */usr/share/elasticsearch*  
+Elasticsearch directory: */data/db/elasticsearch*  
+
+### adminMongo
+
+adminMongo is a visual MongoDB management tool, is installed based on docker.  
+
+adminMongo directory：*/data/apps/adminmongo*  
+adminMongo docker compose file：*/data/apps/adminmongo/docker-compose.yml* 
 
 ### Docker
 
 Docker root directory: */var/lib/docker*  
 Docker image directory: */var/lib/docker/image*   
 Docker daemon.json: please create it when you need and save to to the directory */etc/docker*   
-
-### AdminMongo
-
-AdminMongo is a visual MongoDB management tool, is installed based on Docker.  
 
 ## Ports
 
@@ -74,19 +78,15 @@ lsb_release -a
 # Nginx  Version
 nginx -V
 
-# Java version
-java -v
-
 # Docker Version
 docker -v
 
-# MongoDB version
-mongodb -V
+# Graylog Version
+docker images |grep graylog/graylog |awk '{print $2}'
 
 # Elasticsearch version
-curl -XGET localhost:9200
+docker exec -it graylog-elasticsearch curl -XGET localhost:9200
 
-# Graylog  Version
-yum info graylog
-apt show graylog
+# Mongo version
+docker exec -it graylog-mongo mongo --version
 ```

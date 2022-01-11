@@ -6,11 +6,10 @@ home: false
 
 This documentation is provided by [Websoft9](https://www.websoft9.com/), it can help users to acquire skills of Graylog Deployment, Installation, Configuration, HTTPS, SMTP, Backup, Upgrade, Connect Instance and more.
 
-[Graylog](https://graylog-server.apache.org/) is the most widely deployed open source message broker. With more than 35,000 production deployments of Graylog world-wide at small startups and large enterprises, Graylog is the most popular open source message broker.
+[Graylog](graylog.org) is on a mission to make Log Management and SIEM easier, faster, more affordable, and more effective. 
 
 ![](https://libs.websoft9.com/Websoft9/DocsPicture/en/graylog/graylog-gui-websoft9.png)
 
----
 
 ## Improve
 

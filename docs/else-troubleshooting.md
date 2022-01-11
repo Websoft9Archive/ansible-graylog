@@ -15,9 +15,10 @@ Insufficient disk space and memory, incorrect configuration file may cause the f
 It is recommended to first check through the command.
 
 ```shell
-# restart Graylog service
-systemctl status graylog-server
-journalctl -u graylog-server
+#Graylog service
+sudo docker logs graylog
+sudo docker stats graylog
+sudo docker restart graylog
 
 # view disk space
 df -lh
