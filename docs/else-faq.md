@@ -1,5 +1,14 @@
 # FAQ
 
+#### Graylog Architecture?
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/graylog-arch-websoft9.png)
+
+
+#### Graylog HA deployment?
+
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/architec_bigger_setup.png)
+
+
 #### If there is no domain name, can I deploy Graylog?
 
 No, you must configure domain name for Graylog

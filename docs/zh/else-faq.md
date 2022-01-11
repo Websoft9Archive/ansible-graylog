@@ -1,12 +1,16 @@
 # FAQ
 
-#### 是否可以通过命令行修改Graylog后台密码？
+#### Graylog 系统架构示意图？
+![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/graylog-arch-websoft9.png)
 
-暂时没有方案
 
-#### Graylog 的系统架构是什么样的？
+#### Graylog 的集群架构示意图？
 
 ![](https://libs.websoft9.com/Websoft9/DocsPicture/zh/graylog/architec_bigger_setup.png)
+
+#### 如何访问 Graylog API?
+
+访问的URL为：*https://Internet IP:9001/api/api-browser/global/index.html*。缺少 /global/index.html 是无法访问的
 
 #### 如果没有域名是否可以部署 Graylog？
 
